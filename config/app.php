@@ -164,6 +164,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         Intervention\Image\ImageServiceProvider::class,
+        Socieboy\Alerts\AlertServiceProvider::class,
         /*
          * Package Service Providers...
          */

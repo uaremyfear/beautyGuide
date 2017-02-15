@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Regency | Dashboard</title>
+    <title>Handmade | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }} ">
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }} ">
-    
+    <link rel="stylesheet" type="text/css" href="/css/sweetalert.css">
     @yield('header_link')
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,7 +46,7 @@
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>A</b>LT</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Regency</b>Petrol</span>
+                <span class="logo-lg"><b>Handmade</b>Website</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -64,9 +64,18 @@
                         <!-- Tasks: style can be found in dropdown.less -->
                         
                         <!-- User Account: style can be found in dropdown.less -->
-                       
-                        <!-- Control Sidebar Toggle Button -->
-                        
+                        <li class="dropdown user user-menu">
+                            <a href="{{ url('/logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                        <!-- Control Sidebar Toggle Button -->                        
                     </ul>
                 </div>
             </nav>
@@ -113,6 +122,18 @@
                         <a href=" {{ url('gotg/product') }}">
                             <i class="fa fa-files-o"></i>
                             <span>Product</span>
+                            <span class="pull-right-container">
+                                <span class="label label-primary pull-right">4</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="sidebar-menu">
+                    <li class="treeview">
+                        <a href=" {{ url('gotg/user') }}">
+                            <i class="fa fa-files-o"></i>
+                            <span>User</span>
                             <span class="pull-right-container">
                                 <span class="label label-primary pull-right">4</span>
                             </span>
@@ -167,7 +188,11 @@
     <script src="dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js"></script> --}}
-
+    
+    <script src="/js/sweetalert.js"></script>
+    
+    @include('Alerts::show')
+    
     @yield('footer_js')
 
 </body>

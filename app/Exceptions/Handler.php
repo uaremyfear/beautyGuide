@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;
+use App\Exceptions\DontHaveAccessException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -35,18 +36,45 @@ class Handler extends ExceptionHandler
         parent::report($exception);
     }
 
-    /**
+   /**
      * Render an exception into an HTTP response.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
+    public function render($request, Exception $e)
     {
-        return parent::render($request, $exception);
+       
+        switch($e){
+
+            case ($e instanceof DontHaveAccessException):
+
+                return $this->renderException($e);
+                break;
+
+            default:
+            
+                return parent::render($request, $e);
+        }
     }
 
+    protected function renderException($e)
+    {
+
+        switch ($e){
+
+            case ($e instanceof DontHaveAccessException):
+
+                return response()->view('errors.444');
+                break;
+           
+            default:
+                return (new SymfonyDisplayer(config('app.debug')))
+                    ->createResponse($e);
+                }
+    }
+        
     /**
      * Convert an authentication exception into an unauthenticated response.
      *

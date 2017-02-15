@@ -12,9 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('admin.index');
+	return view('admin.index');
+})->middleware('auth');
+
+Route::group(['prefix' => 'gotg' , 'middleware' => 'auth'], function () {
+	Route::get('/', function () {
+		return view('admin.index');
+	});
+	Route::resource('/category','CategoryController');
+	Route::resource('/subcategory','SubcategoryController');
+	Route::resource('/product','ProductController');
+	Route::resource('/user','UserController');
+	Route::get('/changepassword/user/{id}','UserController@changePassword');
+	Route::post('/changepassword/user/{id}','UserController@updatePassword');
 });
 
-Route::resource('gotg/category','CategoryController');
-Route::resource('gotg/subcategory','SubcategoryController');
-Route::resource('gotg/product','ProductController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

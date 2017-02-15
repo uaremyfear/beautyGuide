@@ -12,13 +12,22 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\User::class, function () {
     static $password;
 
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'name' => 'admin',
+        'email' => 'admin@mail.com',
+        'password' => $password ?: $password = bcrypt('admin123'),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Role::class, function () {
+  	
+  	return [
+        'role_name' => 'super_admin',
+        'slug' => 'Super Admin',
+        'Description' => 'Super Admin can do anything including create user'        
     ];
 });
