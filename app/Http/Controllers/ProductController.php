@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\SubCategory;
+use App\Category;
 use App\Traits\ManagesImages;
 use App\MarketingImage;
 
@@ -26,7 +27,9 @@ class ProductController extends Controller
     {
         $products = Product::all();
         $thumbnailPath = $this->thumbnailPath;
-        
+
+       
+
         return view('backend.product.index',compact('products','thumbnailPath'));
     }
 
@@ -37,9 +40,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $sub_categories = SubCategory::orderBy('sub_name')->get();
+        $subcategories = SubCategory::orderBy('sub_name')->get();
 
-        return view('backend.product.create',compact('sub_categories'));
+        $categories = Category::select('id','category_name')->orderBy('category_name')->get();
+
+        return view('backend.product.create',compact('subcategories','categories'));
     }
 
     /**

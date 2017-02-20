@@ -25,8 +25,14 @@ Route::group(['prefix' => 'gotg' , 'middleware' => 'auth'], function () {
 	Route::resource('/user','UserController');
 	Route::get('/changepassword/user/{id}','UserController@changePassword');
 	Route::post('/changepassword/user/{id}','UserController@updatePassword');
+	Route::get('/changemypassword','PasswordController@showChangePasswordForm');
+	Route::post('/changemypassword','PasswordController@updateChangePassword');
 });
 
-Auth::routes();
+ Auth::routes();
+
+// Route::post('login', 'Auth\LoginController@login');
+// Route::get('login',  'Auth\LoginController@showLoginForm');
+// Route::get('logout', 'Auth\LoginController@logout');
 
 Route::get('/home', 'HomeController@index');

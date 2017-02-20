@@ -27,7 +27,11 @@ class LoginController extends Controller
      */
     protected $redirectTo = '/login';
 
-    protected $redirectAfterLogout = '/auth/login';
+   
+
+    public function postRegister() {
+        return redirect('/');
+    }
     /**
      * Create a new controller instance.
      *

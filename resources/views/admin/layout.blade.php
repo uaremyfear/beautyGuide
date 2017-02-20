@@ -65,6 +65,11 @@
                         
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
+                            <a href="{{ url('gotg/changemypassword') }}">
+                                My Profile
+                            </a>
+                        </li>
+                        <li class="dropdown user user-menu">
                             <a href="{{ url('/logout') }}"
                                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
@@ -150,7 +155,7 @@
     <!-- ./wrapper -->
 
     <!-- jQuery 2.2.3 -->
-    <script src="{{ asset('js/app.js')}}"></script>
+    {{-- <script src="{{ asset('js/app.js')}}"></script> --}}
 
     {{-- <script src="plugins/jQuery/jquery-2.2.3.min.js"></script> --}}
     <!-- jQuery UI 1.11.4 -->

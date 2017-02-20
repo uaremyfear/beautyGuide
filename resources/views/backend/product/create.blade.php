@@ -10,7 +10,7 @@
 </section>
 
 <section class="content">
-	<div class="row">
+	<div class="row" id="app">
 		<div class="col-md-12">
 			<form class="form" role="form" method="POST" action="{{ url('gotg/product') }}" enctype="multipart/form-data">
 
@@ -51,22 +51,32 @@
 					@endif
 
 				</div>
+				
+				<!-- Category Form Input -->
+
+				<div class="form-group{{ $errors->has('sub_category_id') ? ' has-error' : '' }}">
+					<label class="control-label" >Category Name</label>
+					
+					<select class="form-control" id="sub_category_id" name="category" v-model="vcategory_id">
+						<option value="">Please Choose One</option>
+						<option :value="category.id"  v-for="category in categories">@{{category.category_name}}</option>
+					</select>
+					
+					@if ($errors->has('sub_category_id'))
+					<span class="help-block">
+						<strong>{{ $errors->first('sub_category_id') }}</strong>
+					</span>
+					@endif
+				</div>
 
 				<!-- Sub Category Form Input -->
 
 				<div class="form-group{{ $errors->has('sub_category_id') ? ' has-error' : '' }}">
 					<label class="control-label">Sub Category Name</label>
-					<select class="form-control" id="sub_category_id" name="sub_category_id">
-						{{-- <option value="{{old('category_id')}}">
-							{{ ! is_null(old('category_id')) ?
-							(old('category_id') == 1 ? 'Yes' :'No')
-							: 'Please Choose One'}}
-						</option> --}}
-						<option value= "" >Please Choose One</option>
-						@foreach ($sub_categories as $sub_category)
-						<option value= "{{$sub_category->id}}" >{{$sub_category->sub_name}}</option>
-						@endforeach
-
+					<select class="form-control" id="sub_category_id" name="sub_category_id" v-model="sub_category_id">						
+						<option value="">Please Choose One</option>						
+						<option :value="subcategory.id" v-for="subcategory in subcategories_filter">@{{subcategory.sub_name}}
+						</option>						
 					</select>
 
 					@if ($errors->has('sub_category_id'))
@@ -90,7 +100,7 @@
 					</span>
 					@endif
 				</div>
-
+				
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary btn-lg">
 						Create
@@ -101,3 +111,42 @@
 	</div>
 </section>		
 @endsection
+
+@section('footer_js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.2.0/vue-resource.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.js"></script>
+
+<script>
+	var categories = <?php echo json_encode($categories) ?>;;
+	var subcategories = <?php echo json_encode($subcategories) ?>;;
+
+	var app = new Vue({
+		el : '#app',
+
+		data : {
+			categories : categories,
+			subcategories : subcategories,
+			vcategory_id : "",
+			byCategory : "",
+			sub_category_id : "",			
+		},
+
+		watch: {
+			vcategory_id: function (vcategory_id) {
+				var vm = this;
+				this.sub_category_id = "";
+			}
+		},
+
+		computed: {
+			subcategories_filter: function (vcategory_id) {
+				var vm = this;
+				return this.subcategories.filter(function (subcategory) {
+					return subcategory.category_id == vm.vcategory_id;
+				})
+			},
+		},	
+		}
+	});
+</script>	
+@endsection()

@@ -62,10 +62,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => bcrypt($data['password']),
+        // ]);
+    }
+
+    /*
+    * Rewrite Method Not to show the Register Form
+    * 
+    */
+
+    public function showRegistrationForm() {
+        return redirect('/');
+    }
+    
+    public function register() {
+        return redirect('/');
     }
 }
