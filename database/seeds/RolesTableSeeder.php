@@ -18,13 +18,13 @@ class RolesTableSeeder extends Seeder
     	Role::create([
     		'role_name' => 'super_admin',
         	'slug' => 'Super Admin',
-        	'Description' => 'Super Admin can do anything including create user'  
+        	'description' => 'Super Admin can do anything including create user'  
     		]);
 
     	Role::create([
     		'role_name' => 'admin',
         	'slug' => 'Admin',
-        	'Description' => 'Super Admin can do anything including but cant create user'
+        	'description' => 'Super Admin can do anything including but cant create user'
     		]);
 
     	Role::reguard();
