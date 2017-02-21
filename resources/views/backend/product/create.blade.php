@@ -143,10 +143,9 @@
 				var vm = this;
 				return this.subcategories.filter(function (subcategory) {
 					return subcategory.category_id == vm.vcategory_id;
-				})
+				});
 			},
 		},	
-		}
-	});
+	});	
 </script>	
 @endsection()
