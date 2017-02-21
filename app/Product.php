@@ -12,4 +12,14 @@ class Product extends Model
     {
     	return $this->hasOne(MarketingImage::class);
     }
+
+    public function category()
+    {
+    	return $this->belongsTo(Category::class);
+    }
+
+    public function subcategory()
+    {
+    	return $this->belongsTo(SubCategory::class,'sub_category_id');
+    }
 }

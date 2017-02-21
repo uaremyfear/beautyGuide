@@ -54,7 +54,7 @@
 				
 				<!-- Category Form Input -->
 
-				<div class="form-group{{ $errors->has('sub_category_id') ? ' has-error' : '' }}">
+				<div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
 					<label class="control-label" >Category Name</label>
 					
 					<select class="form-control" id="sub_category_id" name="category" v-model="vcategory_id">
@@ -62,9 +62,9 @@
 						<option :value="category.id"  v-for="category in categories">@{{category.category_name}}</option>
 					</select>
 					
-					@if ($errors->has('sub_category_id'))
+					@if ($errors->has('category'))
 					<span class="help-block">
-						<strong>{{ $errors->first('sub_category_id') }}</strong>
+						<strong>{{ $errors->first('category') }}</strong>
 					</span>
 					@endif
 				</div>
@@ -146,6 +146,7 @@
 				});
 			},
 		},	
-	});	
+	});
+	
 </script>	
 @endsection()

@@ -15,6 +15,12 @@ Route::get('/', function () {
 	return view('admin.index');
 })->middleware('auth');
 
+// \Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
+//     var_dump($query->sql);
+//     var_dump($query->bindings);
+//     var_dump($query->time);
+// });
+
 Route::group(['prefix' => 'gotg' , 'middleware' => 'auth'], function () {
 	Route::get('/', function () {
 		return view('admin.index');

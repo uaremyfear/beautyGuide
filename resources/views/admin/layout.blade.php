@@ -103,9 +103,7 @@
                         <a href=" {{ url('gotg/category') }}">
                             <i class="fa fa-files-o"></i>
                             <span>Category</span>
-                            <span class="pull-right-container">
-                                <span class="label label-primary pull-right">4</span>
-                            </span>
+                            
                         </a>
                     </li>
                 </ul>
@@ -115,9 +113,7 @@
                         <a href=" {{ url('gotg/subcategory') }}">
                             <i class="fa fa-files-o"></i>
                             <span>Sub Category</span>
-                            <span class="pull-right-container">
-                                <span class="label label-primary pull-right">4</span>
-                            </span>
+                            
                         </a>
                     </li>
                 </ul>
@@ -127,9 +123,7 @@
                         <a href=" {{ url('gotg/product') }}">
                             <i class="fa fa-files-o"></i>
                             <span>Product</span>
-                            <span class="pull-right-container">
-                                <span class="label label-primary pull-right">4</span>
-                            </span>
+                            
                         </a>
                     </li>
                 </ul>
@@ -139,9 +133,7 @@
                         <a href=" {{ url('gotg/user') }}">
                             <i class="fa fa-files-o"></i>
                             <span>User</span>
-                            <span class="pull-right-container">
-                                <span class="label label-primary pull-right">4</span>
-                            </span>
+                            
                         </a>
                     </li>
                 </ul>
