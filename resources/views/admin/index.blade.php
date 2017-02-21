@@ -8,10 +8,7 @@
 		Dashboard
 		<small>Control panel</small>
 	</h1>
-	<ol class="breadcrumb">
-		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-		<li class="active">Dashboard</li>
-	</ol>
+	
 </section>
 
 <section class="content">
@@ -20,14 +17,14 @@
 			<!-- small box -->
 			<div class="small-box bg-aqua">
 				<div class="inner">
-					<h3>150</h3>
+					<h3>{{$count_product}}</h3>
 
-					<p>New Orders</p>
+					<p>Products</p>
 				</div>
 				<div class="icon">
 					<i class="ion ion-bag"></i>
 				</div>
-				<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				<a href="{{ url('gotg/product') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
 		<!-- ./col -->
@@ -35,14 +32,14 @@
 			<!-- small box -->
 			<div class="small-box bg-green">
 				<div class="inner">
-					<h3>53<sup style="font-size: 20px">%</sup></h3>
+					<h3>{{$count_category}}</h3>
 
-					<p>Bounce Rate</p>
+					<p>Categories</p>
 				</div>
 				<div class="icon">
 					<i class="ion ion-stats-bars"></i>
 				</div>
-				<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				<a href="{{ url('gotg/category') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
 		<!-- ./col -->
@@ -50,14 +47,14 @@
 			<!-- small box -->
 			<div class="small-box bg-yellow">
 				<div class="inner">
-					<h3>44</h3>
+					<h3>{{$count_subcategory}}</h3>
 
-					<p>User Registrations</p>
+					<p>Sub Categories</p>
 				</div>
 				<div class="icon">
-					<i class="ion ion-person-add"></i>
+					<i class="ion ion-pie-graph"></i>					
 				</div>
-				<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				<a href="{{ url('gotg/subcategory') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
 		<!-- ./col -->
@@ -65,14 +62,14 @@
 			<!-- small box -->
 			<div class="small-box bg-red">
 				<div class="inner">
-					<h3>65</h3>
+					<h3>{{$count_user}}</h3>
 
-					<p>Unique Visitors</p>
+					<p>Users</p>
 				</div>
 				<div class="icon">
-					<i class="ion ion-pie-graph"></i>
+					<i class="ion ion-person-add"></i>
 				</div>
-				<a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				<a href="{{ url('gotg/user') }}" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
 		<!-- ./col -->

@@ -132,8 +132,7 @@
                     <li class="treeview">
                         <a href=" {{ url('gotg/user') }}">
                             <i class="fa fa-files-o"></i>
-                            <span>User</span>
-                            
+                            <span>User</span>                            
                         </a>
                     </li>
                 </ul>

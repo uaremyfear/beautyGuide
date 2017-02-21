@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-	return view('admin.index');
+	return redirect()->to('/gotg');
 })->middleware('auth');
 
 // \Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
@@ -22,9 +22,7 @@ Route::get('/', function () {
 // });
 
 Route::group(['prefix' => 'gotg' , 'middleware' => 'auth'], function () {
-	Route::get('/', function () {
-		return view('admin.index');
-	});
+	Route::get('/', 'HomeController@index');
 	Route::resource('/category','CategoryController');
 	Route::resource('/subcategory','SubcategoryController');
 	Route::resource('/product','ProductController');
