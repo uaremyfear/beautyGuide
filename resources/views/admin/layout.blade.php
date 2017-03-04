@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Handmade | Dashboard</title>
+    <title>Dar Doepyi | Souvenir of Myanmar| Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -46,7 +46,7 @@
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>A</b>LT</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Handmade</b>Website</span>
+                <span class="logo-lg"><b>Dar Doepyi </b>Website</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -91,10 +91,10 @@
             <section class="sidebar">
                 <div class="user-panel">
                     <div class="pull-left image">
-                        <img src="{{ asset('dist/img/user2-160x160.jpg') }} " class="img-circle" alt="User Image">
+                        <img src="{{ asset('dist/img/logo.jpg') }} " style="max-width:60px" class="img-circle" alt="User Image">
                     </div>
-                    <div class="pull-left info">
-                        <p>Handmade Admin</p>
+                    <div class="pull-left info" style="padding-left:24px">
+                        <p>Dar Doepyi Admin</p>
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
@@ -157,7 +157,7 @@
     <!-- jQuery 2.2.3 -->
     {{-- <script src="{{ asset('js/app.js')}}"></script> --}}
 
-    {{-- <script src="plugins/jQuery/jquery-2.2.3.min.js"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

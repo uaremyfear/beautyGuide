@@ -14,7 +14,9 @@
 Route::get('/', function () {
 	return view('admin.index');
 })->middleware('auth');
-
+Route::get('/home', function(){
+	return view('client.index');
+});
 Route::group(['prefix' => 'gotg' , 'middleware' => 'auth'], function () {
 	Route::get('/', function () {
 		return view('admin.index');
@@ -35,4 +37,4 @@ Route::group(['prefix' => 'gotg' , 'middleware' => 'auth'], function () {
 // Route::get('login',  'Auth\LoginController@showLoginForm');
 // Route::get('logout', 'Auth\LoginController@logout');
 
-Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');

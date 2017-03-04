@@ -59,7 +59,7 @@ class ProductController extends Controller
                 'name' => 'required',
                 'description' => 'required',
                 'sub_category_id' => 'required|integer',
-                'image' => 'required|mimes:jpeg,jpg,bmp,png|max:1000'
+                'image' => 'required|mimes:jpeg,jpg,bmp,png|max:2097152'
             ]);
 
         $slug = str_slug($request->name, "-");
