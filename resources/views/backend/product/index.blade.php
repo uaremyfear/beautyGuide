@@ -40,8 +40,8 @@
 							<tr>
 								<td><img src="{{ $product->picture()->first()->showImage($product->picture()->first(), $thumbnailPath) }}"></td>
 								<td>{{$product->name}}</td>
-								<td>{{$product->sub_category_id}}</td>
-								<td>{{$product->category_id}}</td>
+								<td>{{$product->subcategory()->first()->sub_name}}</td>
+								<td>{{$product->category()->first()->category_name}}</td>
 								<td><a href="/gotg/category/{{ $product->id }}/edit">Edit</a></td>
 							</tr> 
 							@endforeach

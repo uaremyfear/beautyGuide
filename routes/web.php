@@ -12,15 +12,22 @@
 */
 
 Route::get('/', function () {
-	return view('admin.index');
+	return redirect()->to('/gotg');
 })->middleware('auth');
+
 Route::get('/home', function(){
 	return view('client.index');
 });
+
+
+// \Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
+//     var_dump($query->sql);
+//     var_dump($query->bindings);
+//     var_dump($query->time);
+// });
+
 Route::group(['prefix' => 'gotg' , 'middleware' => 'auth'], function () {
-	Route::get('/', function () {
-		return view('admin.index');
-	});
+	Route::get('/', 'HomeController@index');
 	Route::resource('/category','CategoryController');
 	Route::resource('/subcategory','SubcategoryController');
 	Route::resource('/product','ProductController');

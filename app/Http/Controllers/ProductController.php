@@ -26,9 +26,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        $thumbnailPath = $this->thumbnailPath;
 
-       
+        $thumbnailPath = $this->thumbnailPath;
 
         return view('backend.product.index',compact('products','thumbnailPath'));
     }

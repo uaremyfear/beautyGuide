@@ -42,7 +42,7 @@
     <div class="wrapper">
         <header class="main-header">
             <!-- Logo -->
-            <a href="index2.html" class="logo">
+            <a href="{{ url('gotg') }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>A</b>LT</span>
                 <!-- logo for regular state and mobile devices -->
@@ -103,9 +103,7 @@
                         <a href=" {{ url('gotg/category') }}">
                             <i class="fa fa-files-o"></i>
                             <span>Category</span>
-                            <span class="pull-right-container">
-                                <span class="label label-primary pull-right">4</span>
-                            </span>
+                            
                         </a>
                     </li>
                 </ul>
@@ -115,9 +113,7 @@
                         <a href=" {{ url('gotg/subcategory') }}">
                             <i class="fa fa-files-o"></i>
                             <span>Sub Category</span>
-                            <span class="pull-right-container">
-                                <span class="label label-primary pull-right">4</span>
-                            </span>
+                            
                         </a>
                     </li>
                 </ul>
@@ -127,9 +123,7 @@
                         <a href=" {{ url('gotg/product') }}">
                             <i class="fa fa-files-o"></i>
                             <span>Product</span>
-                            <span class="pull-right-container">
-                                <span class="label label-primary pull-right">4</span>
-                            </span>
+                            
                         </a>
                     </li>
                 </ul>
@@ -138,10 +132,7 @@
                     <li class="treeview">
                         <a href=" {{ url('gotg/user') }}">
                             <i class="fa fa-files-o"></i>
-                            <span>User</span>
-                            <span class="pull-right-container">
-                                <span class="label label-primary pull-right">4</span>
-                            </span>
+                            <span>User</span>                            
                         </a>
                     </li>
                 </ul>
@@ -155,7 +146,7 @@
     <!-- ./wrapper -->
 
     <!-- jQuery 2.2.3 -->
-    {{-- <script src="{{ asset('js/app.js')}}"></script> --}}
+    <script src="{{ asset('js/app.js')}}"></script>
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <!-- jQuery UI 1.11.4 -->
