@@ -42,7 +42,7 @@
 								<td>{{$product->name}}</td>
 								<td>{{$product->subcategory()->first()->sub_name}}</td>
 								<td>{{$product->category()->first()->category_name}}</td>
-								<td><a href="/gotg/category/{{ $product->id }}/edit">Edit</a></td>
+								<td><a href="#">Edit</a></td>
 							</tr> 
 							@endforeach
 						</tbody>
