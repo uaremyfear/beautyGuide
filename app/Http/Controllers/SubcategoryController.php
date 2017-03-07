@@ -53,6 +53,8 @@ class SubcategoryController extends Controller
             'slug' => $slug
             ]);
 
+        alert()->success('Sub Category', 'Sub Category Created!');
+
         return redirect('gotg/subcategory');
     }
 
@@ -78,6 +80,8 @@ class SubcategoryController extends Controller
         $subcategory = SubCategory::findOrFail($id);
 
         $categories = Category::where('id','!=',$subcategory->category()->first()->id)->get();
+
+
 
         return view('backend.subcategory.edit',compact('subcategory','categories'));
     }
@@ -105,6 +109,8 @@ class SubcategoryController extends Controller
                 'category_id' => $request->category_id,
                 'slug' => $slug
             ]);       
+
+        alert()->success('Sub Category', 'Sub Category Updated!');
 
         return redirect('gotg/subcategory');
     }

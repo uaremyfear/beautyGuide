@@ -31,6 +31,8 @@ class CategoryController extends Controller
 				'slug' => $slug
 			]);
 
+        alert()->success('Category', 'Category Created!');
+
         return redirect('gotg/category');
     }
 
@@ -55,6 +57,8 @@ class CategoryController extends Controller
 				'category_name' => $request->category_name,
 				'slug' => $slug
 			]);
+
+        alert()->success('Category', 'Category Updated!');
 
         return redirect('gotg/category');
     }

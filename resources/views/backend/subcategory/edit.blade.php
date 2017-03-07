@@ -32,7 +32,7 @@
 				<!-- Category Form Input -->
 
 				<div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
-					<label class="control-label">Is Active</label>
+					<label class="control-label">Category</label>
 					<select class="form-control" id="category_id" name="category_id">
 						{{-- <option value="{{old('category_id')}}">
 							{{ ! is_null(old('category_id')) ?
@@ -55,7 +55,7 @@
 
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary btn-lg">
-						Edit
+						Update
 					</button>
 				</div>
 

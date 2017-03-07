@@ -26,7 +26,7 @@ class PasswordController extends Controller
      */
     public function updateChangePassword(ChangePasswordRequest $request)
     {
-        Auth::user()->password = $request->password;
+        Auth::user()->password = bcrypt($request->password);
 
         Auth::user()->save();
 

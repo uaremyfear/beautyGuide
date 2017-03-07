@@ -22,8 +22,6 @@
 				{{ csrf_field() }}
 
 				<!-- Email Form Input -->
-				
-				<!-- Email Form Input -->
 				<div class="row">
 					<div class="col-md-1"><span>Name :</span></div>
 					<div class="col-md-10"><strong>{{Auth::user()->name}}</strong></div>

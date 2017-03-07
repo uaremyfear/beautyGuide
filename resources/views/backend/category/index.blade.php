@@ -24,7 +24,7 @@
 		<div class="col-md-12">
 			<div class="box">
 				<!-- /.box-header -->
-				<div class="box-body">
+				<div class="box-body capital">
 					<table id="example1" class="table table-bordered table-striped">
 						<thead>
 							<tr>

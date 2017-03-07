@@ -24,7 +24,7 @@
 		<div class="col-md-12">
 			<div class="box">
 				<!-- /.box-header -->
-				<div class="box-body">
+				<div class="box-body capital">
 					<table id="example1" class="table table-bordered table-striped">
 						<thead>
 							<tr>
@@ -32,17 +32,26 @@
 								<th>Name</th>								
 								<th>Sub Category</th>
 								<th>Category</th>
-								<th>Action</th>								
+								<th>Edit</th>
+								<th>Delete</th>							
 							</tr>
 						</thead>
 						<tbody>
 							@foreach ($products as $product)
 							<tr>
 								<td><img src="{{ $product->picture()->first()->showImage($product->picture()->first(), $thumbnailPath) }}"></td>
-								<td>{{$product->name}}</td>
+								<td><a href="/gotg/product/{{$product->id}}">{{$product->name}}</td>
 								<td>{{$product->subcategory()->first()->sub_name}}</td>
 								<td>{{$product->category()->first()->category_name}}</td>
-								<td><a href="#">Edit</a></td>
+								<td><a href="/gotg/product/{{$product->id}}/edit">Edit</a></td>
+								<td>
+									<form class="form" role="form" method="POST" action="{{ url('gotg/product/'. $product->id) }}">
+										<input type="hidden" name="_method" value="delete">
+										{{ csrf_field() }}
+
+										<input class="btn btn-danger" Onclick="return ConfirmDelete();" type="submit" value="Delete">
+									</form>
+								</td>
 							</tr> 
 							@endforeach
 						</tbody>
@@ -52,7 +61,8 @@
 								<th>Name</th>								
 								<th>Sub Category</th>
 								<th>Category</th>
-								<th>Action</th>	
+								<th>Edit</th>
+								<th>Delete</th>
 							</tr>
 						</tfoot>
 					</table>
@@ -84,6 +94,17 @@
 			"autoWidth": false
 		});
 	});
+</script>
+
+<script>
+	function ConfirmDelete()
+	{
+		var x = confirm("Are you sure you want to delete?");
+		if (x)
+			return true;
+		else
+			return false;
+	}
 </script>
 
 @endsection
