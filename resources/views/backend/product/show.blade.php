@@ -12,8 +12,6 @@
 		Product
 		<small>Detail</small>
 	</h1>
-</br>
-
 </section>
 
 <section class="content">
@@ -58,7 +56,7 @@
 
 				<div class="row">
 					<div class="col-md-1">
-						<a href="/gotg/product/{{$product->id}}/edit"><input class="btn btn-success" Onclick="return ConfirmDelete();" type="submit" value="Edit"></a>
+						<a href="/gotg/product/{{$product->id}}/edit"><input class="btn btn-success" type="submit" value="Edit"></a>
 					</div>
 					<div class="col-md-2">
 						<form class="form" role="form" method="POST" action="{{ url('gotg/product/'. $product->id) }}">
