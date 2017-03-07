@@ -5,7 +5,7 @@
 <section class="content-header">
 	<h1>
 		Product 
-		<small>create</small>
+		<small>Edit</small>
 	</h1>
 </section>
 
