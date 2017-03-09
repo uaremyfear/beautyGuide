@@ -9,11 +9,14 @@
 	</h1>
 </section>
 
+{{var_dump($errors)}}
+
 <section class="content">
 	<div class="row" id="app">
 		<div class="col-md-12">
 			<form class="form" role="form" method="POST" action="{{ url('gotg/product/'. $product->id) }}" enctype="multipart/form-data">
 				<input type="hidden" name="_method" value="patch">
+
 				{{ csrf_field() }}
 
 				<!-- name Form Input -->
@@ -34,13 +37,31 @@
 
 				</div>
 
+				<!-- price Form Input -->
+				
+				<div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
+
+					<label class="control-label">Price</label>
+
+					<input class="form-control" name="price" value="{{ $product->price }}">
+
+					@if ($errors->has('price'))
+
+					<span class="help-block">
+						<strong>{{ $errors->first('price') }}</strong>
+					</span>
+
+					@endif
+
+				</div>
+
 				<!-- description Form Input -->
 				
 				<div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
 
 					<label class="control-label">Product Description</label>
 
-					<textarea class="form-control" name="description" >{{ $product->description }}</textarea>
+					<textarea class="form-control" name="description">{{ $product->description }}</textarea>
 
 					@if ($errors->has('description'))
 
@@ -86,6 +107,7 @@
 					@endif
 				</div>
 				
+				
 				<!-- Image Form Input -->
 				<div class="row">
 					<div class="col-md-12">
@@ -100,7 +122,7 @@
 						<div class="col-md-8">
 							<div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
 								<div class="form-group">
-								<label class="control-label">New Image
+									<label class="control-label">Primary Image
 									</label>
 									<input type="file" name="image" id="image">
 								</div>
@@ -112,8 +134,8 @@
 							</div>
 						</div>
 					</div>
-				</div>				
-
+				</div>	
+				
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary btn-lg">
 						Update
@@ -133,8 +155,8 @@
 	var categories = <?php echo json_encode($categories) ?>;;
 	var subcategories = <?php echo json_encode($subcategories) ?>;;
 	var category = {{$product->category_id}};
-	var subcategory = {{$product->sub_category_id}}
-
+	var subcategory = {{$product->sub_category_id}};
+	
 	var app = new Vue({
 		el : '#app',
 
@@ -162,5 +184,6 @@
 			}
 		}	
 	});
+
 </script>	
 @endsection()

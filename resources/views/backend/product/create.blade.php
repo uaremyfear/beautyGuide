@@ -34,13 +34,31 @@
 
 				</div>
 
+				<!-- price Form Input -->
+				
+				<div class="form-group{{ $errors->has('price') ? ' has-error' : '' }}">
+
+					<label class="control-label">Price</label>
+
+					<input class="form-control" name="price" value="{{ old('price') }}">
+
+					@if ($errors->has('price'))
+
+					<span class="help-block">
+						<strong>{{ $errors->first('price') }}</strong>
+					</span>
+
+					@endif
+
+				</div>
+
 				<!-- description Form Input -->
 				
 				<div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
 
 					<label class="control-label">Product Description</label>
 
-					<textarea class="form-control" name="description" value="{{ old('description') }}"></textarea>
+					<textarea class="form-control" name="description">{{ old('description') }}</textarea>
 
 					@if ($errors->has('description'))
 

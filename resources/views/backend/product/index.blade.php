@@ -29,7 +29,8 @@
 						<thead>
 							<tr>
 								<th>Image</th>
-								<th>Name</th>								
+								<th>Name</th>
+								<th>Price</th>								
 								<th>Sub Category</th>
 								<th>Category</th>
 								<th>Edit</th>
@@ -40,7 +41,8 @@
 							@foreach ($products as $product)
 							<tr>
 								<td><img src="{{ $product->picture()->first()->showImage($product->picture()->first(), $thumbnailPath) }}"></td>
-								<td><a href="/gotg/product/{{$product->id}}">{{$product->name}}</td>
+								<td><a href="/gotg/product/{{$product->id}}">{{$product->name}}</a></td>
+								<td>{{$product->price}}</td>
 								<td>{{$product->subcategory()->first()->sub_name}}</td>
 								<td>{{$product->category()->first()->category_name}}</td>
 								<td><a href="/gotg/product/{{$product->id}}/edit">Edit</a></td>

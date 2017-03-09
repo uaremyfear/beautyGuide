@@ -59,6 +59,7 @@ class ProductController extends Controller
     {
         $this->validate($request,[
             'name' => 'required',
+            'price' => 'integer|min:0',
             'description' => 'required',
             'sub_category_id' => 'required|integer',
             'image' => 'required|mimes:jpeg,jpg,bmp,png|max:2097152'
@@ -71,6 +72,7 @@ class ProductController extends Controller
         $product = Product::create([
             'name' => $request->name,
             'slug' => $slug,
+            'price' => $request->price,
             'description' => $request->description,
             'sub_category_id' => $request->sub_category_id,
             'category_id' => $category_id
@@ -129,6 +131,7 @@ class ProductController extends Controller
         if ($request->hasFile('image')) {
             $this->validate($request,[
                 'name' => 'required',
+                'price' => 'integer|min:0',
                 'description' => 'required',
                 'sub_category_id' => 'required|integer',
                 'image' => 'required|mimes:jpeg,jpg,bmp,png|max:2097152'
@@ -137,6 +140,7 @@ class ProductController extends Controller
         else {
             $this->validate($request,[
                 'name' => 'required',
+                'price' => 'integer|min:0',
                 'description' => 'required',
                 'sub_category_id' => 'required|integer',
                 ]);;
@@ -150,6 +154,7 @@ class ProductController extends Controller
 
         $product->name = $request->name;
         $product->slug = $slug;
+        $product->price = $request->price;
         $product->description = $request->description;
         $product->sub_category_id = $request->sub_category_id;
         $product->category_id = $category_id;
