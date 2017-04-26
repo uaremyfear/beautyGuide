@@ -68,6 +68,8 @@ class ProductController extends Controller
         $slug = str_slug($request->name, "-");
 
         $category_id = SubCategory::where('id',$request->sub_category_id)->first()->category()->first()->id;
+
+       
         
         $product = Product::create([
             'name' => $request->name,
@@ -75,7 +77,9 @@ class ProductController extends Controller
             'price' => $request->price,
             'description' => $request->description,
             'sub_category_id' => $request->sub_category_id,
-            'category_id' => $category_id
+            'category_id' => $category_id,
+            'feature' => $request->has('feature'),            
+            'best_seller' => $request->has('best_seller'),
             ]);
 
         $this::storeImage($request,$product);

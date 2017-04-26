@@ -7,9 +7,12 @@ use App\Product;
 use App\SubCategory;
 use App\Category;
 use App\User;
+use App\Traits\ManagesImages;
+use App\MarketingImage;
 
 class HomeController extends Controller
 {
+    use ManagesImages;
     /**
      * Create a new controller instance.
      *
@@ -17,7 +20,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
+        $this->setImageDefaultsFromConfig('marketingImage');
     }
 
     /**
@@ -26,12 +30,42 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $count_product = count(Product::all());
-        $count_category = count(Category::all());
-        $count_subcategory = count(SubCategory::all());
-        $count_user = count(User::all());
+    {#9a936a
+        $products = Product::orderBy('id','DESC')->limit('8')->get();
+
+        $feature_products = Product::where('feature','1')->get();
         
-        return view('admin.index',compact('count_product','count_subcategory','count_category','count_user'));
+        $best_sellers = Product::where('best_seller','1')->get();
+
+        $destinationFolder = $this->destinationFolder;
+        
+        return view('frontend.home',compact('best_sellers','feature_products','products','destinationFolder'));
+    }
+
+    public function showProduct($id)
+    {
+        $product = Product::findOrFail($id);
+
+        $products = Category::where('id',$product->category_id)->first()->products()->where('id','!=',$product->id)->limit('4')->get();
+
+        $destinationFolder = $this->destinationFolder;
+
+        return view('frontend.productDetail',compact('product','products','destinationFolder'));
+    }
+
+    public function shop()
+    {
+        $categories = Category::all();
+
+        $products = Product::all();
+
+        $destinationFolder = $this->destinationFolder;
+
+        return view('frontend.shop',compact('categories','products','destinationFolder'));
+    }
+
+    public function about()
+    {
+        return view('frontend.about');
     }
 }

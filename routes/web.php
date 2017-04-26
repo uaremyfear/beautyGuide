@@ -26,8 +26,13 @@ Route::get('/home', function(){
 //     var_dump($query->time);
 // });
 
+Route::get('/', 'HomeController@index');
+Route::get('/product/{id}','HomeController@showProduct');
+Route::get('/shop','HomeController@shop');
+Route::get('/about','HomeController@about');
+
 Route::group(['prefix' => 'gotg' , 'middleware' => 'auth'], function () {
-	Route::get('/', 'HomeController@index');
+	
 	Route::resource('/category','CategoryController');
 	Route::resource('/subcategory','SubcategoryController');
 	Route::resource('/product','ProductController');
