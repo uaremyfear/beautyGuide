@@ -34,15 +34,13 @@
                     <h3><span class="light">The</span> Beginnings</h3>
                     <p class="text">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pellentesque consectetur leo, eu porta metus. Nulla justo lacus, aliquam vel libero nec, faucibus enim tristique, molestie ante. Nunc a dolor eget lectus venenatis ullamcorper. Nullam dictum elementum lacus quis facilisis. Phasellus mollis tempus tempus. Fusce ut sagittis quam, quis facilisis tellus. Nam vel aliquet leo. Integer lacus tortor, ullamcorper sit amet interdum at, pulvinar sit amet risus.
-                    </p>
-                    
+                    </p>                    
                 </div>
                 <div class="col-xs-12 col-sm-6">
                     <h3><span class="light">Our</span> Plans in the Future</h3>
                     <p class="text">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pellentesque consectetur leo, eu porta metus. Nulla justo lacus, aliquam vel libero nec, viverra placerat neque. Cras nec nunc sollicitudin, faucibus enim tristique, molestie ante. Nunc a dolor eget lectus venenatis ullamcorper. Nullam dictum elementum lacus quis facilisis. Etiam sit amet euismod eros. Phasellus mollis tempus tempus. Fusce ut sagittis quam, quis facilisis tellus. Nam vel aliquet leo. Integer lacus tortor, ullamcorper sit amet interdum at, pulvinar sit amet risus.
-                    </p>
-                   
+                    </p>                   
                 </div>
             </div>
         </div>

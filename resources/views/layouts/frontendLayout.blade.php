@@ -40,27 +40,8 @@
 <body>
 	<div class="top  js--fixed-header-offset">
 		<div class="container">
-			<div class="row">
-				<div class="col-xs-12  col-sm-6">
-					<div class="top__slogan">
-						Made with <small><span class="glyphicon  glyphicon-heart  tertiary-color"></span></small> for a Smart lifestyle
-					</div>
-				</div>
-				<div class="col-xs-12  col-sm-6">
-					<div class="top__menu">
-						<ul class="nav  nav-pills">							
-							<li class="dropdown  js--mobile-dropdown">
-								<a class="dropdown-toggle"  href="#">
-									USD <span class="caret"></span>
-								</a>
-								<ul class="dropdown-menu">
-									<li><a href="#">EUR</a></li>
-									<li><a href="#">YEN</a></li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</div>
+			<div class="row" style="height:5px;">
+				
 			</div>
 		</div>
 	</div>
@@ -139,107 +120,32 @@
 				<div class="col-xs-12  col-md-7">
 					<nav class="navbar  navbar-default" role="navigation">
 						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse  navbar-collapse" id="collapsible-navbar">
-							<ul class="nav  navbar-nav">
-								<li class="dropdown">
-									<a href="{{ url('/') }}" class="dropdown-toggle">HOME<b class="caret"></b></a>
-								</li>
-								<li class="dropdown">
-									<a href="{{ url('/shop') }}" class="dropdown-toggle">SHOP<b class="caret"></b></a>
-									{{-- <ul class="dropdown-menu">
-										<li><a href="shop.html">Shop (Grid view)</a></li>
-										<li><a href="shop-list-view.html">Shop (List view)</a></li>
-										<li><a href="single-product.html">Single product</a></li>
-										<li><a href="cart.html">Cart</a></li>
-										<li><a href="checkout.html">Checkout</a></li>
-										<li><a href="order-received.html">Order Received</a></li>
-									</ul> --}}
-								</li>
-								<li class="dropdown">
-									<a href="blog.html" class="dropdown-toggle">BLOG<b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="blog-right-sidebar.html">Blog (Right sidebar)</a></li>
-										<li><a href="blog-left-sidebar.html">Blog (Left sidebar)</a></li>
-										<li><a href="blog.html">Blog (Alternative)</a></li>
-										<li><a href="single-post.html">Single Blogpost</a></li>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="about-us.html" class="dropdown-toggle">PAGES<b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="about-us.html">About us</a></li>
-										<li><a href="pricing.html">Pricing Tables</a></li>
-										<li><a href="contact.html">Contact 1</a></li>
-										<li><a href="contact-2.html">Contact 2</a></li>
-										<li><a href="search-results.html">Search Results</a></li>
-										<li><a href="404.html">404 page</a></li>
-										<li><a href="page-right.html">Page (Right sidebar)</a></li>
-										<li><a href="page-left.html">Page (Left sidebar)</a></li>
-										<li><a href="page-full-width.html">Page (Full width)</a></li>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="features.html" class="dropdown-toggle">FEATURES <b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="features.html">Responsive design</a></li>
-										<li><a href="features.html">Retina ready</a></li>
-										<li><a href="features.html">Lightning fast</a></li>
-										<li><a href="features.html">Search engine optimized</a></li>
-										<li><a href="features.html">Layered PSDs included</a></li>
-										<li><a href="features.html">Unlimited colors and layouts</a></li>
-										<li><a href="features.html">290+ Glyphicons and Zocial icons</a></li>
-										<li><a href="features.html">Advance shop filters</a></li>
+						<center>
+							<div class="collapse  navbar-collapse" id="collapsible-navbar">
 
-
-										<li><a href="features.html">Awesome support</a></li>
-										<li class="dropdown">
-											<a href="blog.html" class="dropdown-toggle">3rd level menu</a>
-											<ul class="dropdown-menu">
-												<li><a href="blog-right-sidebar.html">Blog (Right sidebar)</a></li>
-												<li><a href="blog-left-sidebar.html">Blog (Left sidebar)</a></li>
-												<li><a href="blog.html">Blog (Alternative)</a></li>
-												<li><a href="single-post.html">Single Blogpost</a></li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="elements.html" class="dropdown-toggle">ELEMENTS<b class="caret"></b></a>
-									<ul class="dropdown-menu">
-										<li><a href="elements.html#headings">Headings</a></li>
-										<li><a href="elements.html#banners">Banners</a></li>
-										<li><a href="elements.html#alerts">Alerts</a></li>
-										<li><a href="elements.html#tabs">Tabs</a></li>
-										<li><a href="elements.html#buttons">Buttons</a></li>
-										<li><a href="elements.html#tables">Tables</a></li>
-										<li><a href="elements.html#maps">Maps</a></li>
-										<li><a href="elements.html#bars">Bars</a></li>
-										<li><a href="elements.html#columns">Columns</a></li>
-										<li><a href="elements.html#gallerys">Gallerys</a></li>
-										<li><a href="elements.html#code">Code</a></li>
-										<li><a href="elements.html#toggles">Toggles</a></li>
-									</ul>
-								</li>
-								<li class="hidden-xs  hidden-sm">
-									<a href="#" class="js--toggle-search-mode"><span class="glyphicon  glyphicon-search  glyphicon-search--nav"></span></a>
-								</li>
-							</ul>
-							<!-- search for mobile devices -->
-							<form action="#" method="post" class="visible-xs  visible-sm  mobile-navbar-form" role="form">
-								<div class="input-group">
-									<input type="text" class="form-control" placeholder="Search">
-									<span class="input-group-addon">
-										<button type="submit" class="mobile-navbar-form__appended-btn"><span class="glyphicon  glyphicon-search  glyphicon-search--nav"></span></button>
-									</span>
-								</div>
-							</form>
-							<div class="mobile-cart  visible-xs  visible-sm  push-down-15">
-								<span class="header-cart__text--price"><span class="header-cart__text">CART</span> $49.35</span>
-								<a href="cart.html" class="header-cart__items">
-									<span class="header-cart__items-num">3</span>
-								</a>
-							</div>
-						</div><!-- /.navbar-collapse -->
+								
+								<ul class="nav  navbar-nav">
+									<li class="dropdown">
+										<a href="{{ url('/') }}" class="dropdown-toggle">HOME<b class="caret"></b></a>
+									</li>
+									<li class="dropdown">
+										<a href="{{ url('/shop') }}" class="dropdown-toggle">SHOP<b class="caret"></b></a>									
+									</li>
+									<li class="dropdown">
+										<a href="blog.html" class="dropdown-toggle">DELIVERY<b class="caret"></b></a>
+									</li>
+									<li class="dropdown">
+										<a href="{{ url('/about') }}" class="dropdown-toggle">ABOUT US<b class="caret"></b></a>									
+									</li>
+									<li class="dropdown">
+										<a href="{{ url('/contact') }}" class="dropdown-toggle">CONTACT US<b class="caret"></b></a>									
+									</li>								
+								</ul>
+								
+								<!-- search for mobile devices -->
+								
+							</div><!-- /.navbar-collapse -->
+						</center>
 					</nav>
 				</div>				
 			</div>
@@ -278,8 +184,8 @@
 							</div>
 							<p class="push-down-15"> Adipiscing elit. Ut ullamcorper consectetur, non lacinia turpis suscipit non. Estibulum nu nc lacus, tincidunt non odio eu, scelerisque tristique quam.</p>
 							<center>
-							<a class="social-container" href="https://www.facebook.com/ProteusNet"><span class="zocial-facebook"></span></a>
-							<a class="social-container" href="https://twitter.com/ProteusNetCom"><span class="zocial-twitter"></span></a>
+								<a class="social-container" href="https://www.facebook.com/ProteusNet"><span class="zocial-facebook"></span></a>
+								<a class="social-container" href="https://twitter.com/ProteusNetCom"><span class="zocial-twitter"></span></a>
 							</center>
 						</div>
 					</div>
@@ -314,7 +220,7 @@
 							</div>
 							<a class="footer__link" href="#">Dar Doepyi</a><br>
 							အမွတ္ ၆/၁၊ သံသုမာလမ္းမၾကီး၊<br>
-							 ၂၄ရပ္ကြက္၊ သု၀ဏ<br>
+							၂၄ရပ္ကြက္၊ သု၀ဏ<br>
 							<a class="footer__link--small" href="contact-2.html">View Google map <span class="glyphicon glyphicon-chevron-right glyphicon--footer-small"></span></a><br><br>
 							<a class="footer__link" href="#"><span class="glyphicon glyphicon-earphone glyphicon--footer"></span> +386 31 567 537</a><br>
 							<a class="footer__link" href="#"><span class="glyphicon glyphicon-envelope glyphicon--footer"></span> hello@proteusnet.com</a>

@@ -30,6 +30,8 @@ Route::get('/', 'HomeController@index');
 Route::get('/product/{id}','HomeController@showProduct');
 Route::get('/shop','HomeController@shop');
 Route::get('/about','HomeController@about');
+Route::get('/contact','HomeController@contact');
+
 
 Route::group(['prefix' => 'gotg' , 'middleware' => 'auth'], function () {
 	
