@@ -124,7 +124,7 @@
 
 					@foreach( $products as $key => $product )
 					@if($key>3)
-					<div class="col-xs-6 col-sm-3  js--isotope-target  js--cat-6" data-price="16.88" data-rating="4">
+					<div class="col-xs-12 col-sm-3  js--isotope-target  js--cat-6" data-price="16.88" data-rating="4">
 						<div class="products__single">
 							<figure class="products__image">
 								<a href="{{ url('/product/'.$product->id) }}">
@@ -189,7 +189,7 @@
 	<div class="row">
 		@foreach( $feature_products as $product )
 
-		<div class="col-xs-6 col-sm-3  js--isotope-target  js--cat-5" data-price="2.73" data-rating="5">
+		<div class="col-xs-12 col-sm-3  js--isotope-target  js--cat-5" data-price="2.73" data-rating="5">
 			<div class="products__single">
 				<figure class="products__image">
 					<a href="{{ url('/product/'.$product->id) }}">
