@@ -16,7 +16,7 @@ Route::get('/', function () {
 })->middleware('auth');
 
 Route::get('/home', function(){
-	return view('client.index');
+	return redirect()->to('/gotg/product');
 });
 
 
@@ -31,6 +31,7 @@ Route::get('/product/{id}','HomeController@showProduct');
 Route::get('/shop','HomeController@shop');
 Route::get('/about','HomeController@about');
 Route::get('/contact','HomeController@contact');
+Route::get('/delivery','HomeController@delivery');
 
 
 Route::group(['prefix' => 'gotg' , 'middleware' => 'auth'], function () {
@@ -39,10 +40,20 @@ Route::group(['prefix' => 'gotg' , 'middleware' => 'auth'], function () {
 	Route::resource('/subcategory','SubcategoryController');
 	Route::resource('/product','ProductController');
 	Route::resource('/user','UserController');
+	Route::resource('/delivery','DeliveryController');
 	Route::get('/changepassword/user/{id}','UserController@changePassword');
 	Route::post('/changepassword/user/{id}','UserController@updatePassword');
 	Route::get('/changemypassword','PasswordController@showChangePasswordForm');
 	Route::post('/changemypassword','PasswordController@updateChangePassword');
+
+	Route::get('/feature','FeatureController@showFeature');
+	Route::post('/feature','FeatureController@storeFeature');	
+	Route::get('/bestseller','FeatureController@showBest');
+	Route::post('/bestseller','FeatureController@storeBest');
+
+	Route::get('/banner','FeatureController@editBanner');
+	Route::post('/banner','FeatureController@updateBanner');
+	
 });
 
  Auth::routes();

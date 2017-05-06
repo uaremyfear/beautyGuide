@@ -68,8 +68,6 @@ class ProductController extends Controller
         $slug = str_slug($request->name, "-");
 
         $category_id = SubCategory::where('id',$request->sub_category_id)->first()->category()->first()->id;
-
-       
         
         $product = Product::create([
             'name' => $request->name,
@@ -162,6 +160,19 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->sub_category_id = $request->sub_category_id;
         $product->category_id = $category_id;
+        
+        if ($request->has('feature')) {
+            $product->feature = 1;
+        } else {
+            $product->feature = 0;
+        }
+        
+        if ($request->has('best_seller')) {
+           $product->best_seller = 1;
+        } else {
+           $product->best_seller = 0;
+        }
+        
         $product->save();
 
         if ($request->hasFile('image')) {
@@ -206,8 +217,7 @@ class ProductController extends Controller
             'product_id'        => $product->id,
             'image_extension'   => $request->file('image')->getClientOriginalExtension(),
             ]);
-
-
+        
         $marketingImage->save();
 
         // get instance of file

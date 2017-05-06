@@ -18,7 +18,10 @@
 	</div>
 </div>
 
-<div class="simple-map  js--where-we-are" data-latlng="46.049467,14.460506" data-markers="[{lat: 46.049467,lng: 14.460506,title: 'ProteusThemes Ljubljana'},{lat: 46.020569,lng: 15.476118,title: 'ProteusThemes Senovo'}]" data-zoom="6"></div>
+{{-- <div class="simple-map  js--where-we-are" data-latlng="46.049467,14.460506" data-markers="[{lat: 46.049467,lng: 14.460506,title: 'ProteusThemes Ljubljana'},{lat: 46.020569,lng: 15.476118,title: 'ProteusThemes Senovo'}]" data-zoom="6"></div> --}}
+
+<div id="map" class="simple-map"></div>
+
 <div class="container  push-down-30">
 	<div class="row">
 		<div class="col-xs-12">
@@ -61,12 +64,12 @@
 					</form>
 				</div>
 				<div class="col-xs-12 col-sm-3">
-					<h2  class="no-margin"><span class="light">Organique</span> Itd</h2><br/>
-					<p><strong>Dunajska cesta 17,<br>
-						1000 Ljubljana,<br>
-						Slovenia, Europe</strong></p>
-						<span class="glyphicon  glyphicon-earphone"></span> <span class="text-dark">00386 31 567 537</span><br>
-						<span class="glyphicon  glyphicon-envelope"></span> <a class="secondary-link" href="mailto:hello@proteusnet.com"><strong>hello@proteusnet.com</strong></a>
+					<h2  class="no-margin"><span class="light">Dar </span>Doepyi</h2><br/>
+					<p><strong>အမွတ္ ၆/၁၊<br>
+						သံသုမာလမ္းမၾကီး၊<br>
+						၂၄ရပ္ကြက္၊ သု၀ဏ</strong></p>
+						<span class="glyphicon  glyphicon-earphone"></span> <span class="text-dark">09 44 800 8000</span><br>
+						<span class="glyphicon  glyphicon-envelope"></span> <a class="secondary-link" href="mailto:hello@dardoepyi.com"><strong>info@dardoepyi.com</strong></a>
 					</div>
 				</div>
 			</div>
@@ -74,3 +77,23 @@
 	</div>
 
 	@endsection
+
+	@section('footer-script')
+	<script>
+		function initMap() {
+			var uluru = {lat: 16.8213, lng: 96.1869};
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 14,
+				center: uluru
+			});
+			var marker = new google.maps.Marker({
+				position: uluru,
+				map: map
+			});
+		}
+	</script>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqNVXOiogmvJ1dWHTUXG2AsHrEYEjKD2Y&callback=initMap">
+	</script>
+@endsection
+

@@ -89,14 +89,11 @@ trait ManagesImages
 
     private function saveImageFiles(UploadedFile $file, $model)
     {
-
         $this->setImageFile($file);
 
         $this->setFileAttributes($model);
 
         $this->makeImageAndThumbnail();
-
-
     }
 
     private function setImageDefaultsFromConfig($imageTypeKey)
@@ -113,7 +110,6 @@ trait ManagesImages
     {
         $this->imageName = $model->image_name;
         $this->extension = $model->image_extension;
-
     }
 
     private function setImageProperties()

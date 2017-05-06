@@ -7,9 +7,8 @@
 		<div class="row">
 			<div class="col-xs-12">
 				<nav>
-					<ol class="breadcrumb">
+					<ol class="breadcrumb" style="float:right;">
 						<li><a href="{{ url('/') }}">Home</a></li>
-
 						<li class="active">Shop</li>
 					</ol>
 				</nav>
@@ -19,16 +18,7 @@
 </div>
 
 <div class="container">
-	<!-- Big banner -->
-	<div class="row">
-		<div class="col-xs-12">
-			<div class="push-down-30">
-				<div class="banners--big">
-					Exposed shop notice, like <strong>free worldwide</strong> shipping on all purchases 
-				</div>
-			</div>
-		</div>
-	</div>
+	
 	<div class="row">
 		<div class="col-xs-12  col-sm-3">
 			<aside class="sidebar  sidebar--shop">
@@ -41,8 +31,6 @@
 						@foreach ($categories as $category)
 						<li><a data-target=".{{$category->category_name}}" class="js--filter-selectable" href="#">{{$category->category_name}}</a></li>
 						@endforeach
-
-						<li><a data-target="{{$category->category_name}}" class="js--filter-selectable" href="#">{{$category->category_name}}</a></li>
 					</ul>
 
 					<hr class="divider">

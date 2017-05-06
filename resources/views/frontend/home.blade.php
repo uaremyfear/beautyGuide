@@ -3,7 +3,7 @@
 
 @section('content')
 
-<div class="jumbotron  js--add-gradient" style="backgournd:url({{ asset('/images/background_dark.jpg') }});">
+<div class="jumbotron  js--add-gradient" style="backgournd-image:{{ asset('/images/backgourd_dark.jpg')}}">
 	<div class="container">
 		<div class="jumbotron__container">
 			<h2 class="jumbotron__subtitle">
@@ -24,7 +24,7 @@
 				<div class="banners-box">
 					<span class="glyphicon glyphicon-earphone glyphicon--banners"></span>
 					<b class="banners__title">CALL US ANYTIME</b>
-					+386 31 567 537
+					+09 795583764
 				</div>
 			</div>
 			<div class="col-xs-12  col-sm-6  col-md-3">
@@ -45,7 +45,7 @@
 				<div class="banners-box">
 					<span class="glyphicon glyphicon-leaf glyphicon--banners"></span>
 					<b class="banners__title">MADE WITH LOVE</b>
-					For mother nature
+					For our nature
 				</div>
 			</div>
 		</div>
@@ -77,10 +77,8 @@
 				<div class="row">
 
 
-					@foreach( $products as $key => $product )
-					
+					@foreach( $products as $key => $product )					
 					@if($key<4)
-
 					<div class="col-xs-12 col-sm-3  js--isotope-target  js--cat-5" data-price="2.73" data-rating="5">
 						<div class="products__single">
 							<figure class="products__image">
@@ -108,10 +106,13 @@
 									</div>
 								</div>
 							</div>
+							
+							<div class="products__category">
+								{{$product->subcategory()->first()->sub_name}}
+							</div>
+
 						</div>
-						<div class="products__category">
-							{{$product->subcategory()->first()->sub_name}}
-						</div>
+						
 					</div>
 
 					@endif
@@ -133,7 +134,6 @@
 									<a class="product-overlay__more" href="{{ url('/product/'.$product->id) }}">
 										<span class="glyphicon glyphicon-search"></span>
 									</a>
-									
 								</div>
 							</figure>
 							<div class="row">

@@ -9,6 +9,7 @@ use App\Category;
 use App\User;
 use App\Traits\ManagesImages;
 use App\MarketingImage;
+use App\Day;
 
 class HomeController extends Controller
 {
@@ -72,5 +73,16 @@ class HomeController extends Controller
     public function contact()
     {
         return view('frontend.contact');
+    }
+
+    public function delivery()
+    {
+        $mon = Day::findOrFail(1)->places()->orderBy('id')->get();
+        $thue = Day::findOrFail(2)->places()->orderBy('id')->get(); 
+        $wed = Day::findOrFail(3)->places()->orderBy('id')->get(); 
+        $thur = Day::findOrFail(4)->places()->orderBy('id')->get();
+        $fri = Day::findOrFail(5)->places()->orderBy('id')->get();
+        $sat = Day::findOrFail(6)->places()->orderBy('id')->get();        
+        return view('frontend.delivery',compact('mon','thue','wed','thur','fri','sat'));
     }
 }
