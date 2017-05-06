@@ -9,8 +9,6 @@
 	</h1>
 </section>
 
-{{var_dump($errors)}}
-
 <section class="content">
 	<div class="row" id="app">
 		<div class="col-md-12">
@@ -106,6 +104,43 @@
 					</span>
 					@endif
 				</div>
+
+				<div class="form-gruop">
+						<div class="row">
+							<div class="col-md-12">												
+								<div class="checkbox">
+									<label>
+										@if ($product->feature)
+											<input type="checkbox" name="feature" value="1" checked="true">
+										@else
+											<input type="checkbox" name="feature" value="1">
+										@endif										
+											<strong>Feature Product</strong>
+									</label>
+								</div>								
+							</div>
+						</div>
+					</div>
+
+					<div class="form-gruop">
+						<div class="row">
+							<div class="col-md-12">
+												
+								<div class="checkbox">
+									<label>
+										@if ($product->best_seller)
+											<input type="checkbox" name="best_seller" value="1" checked="true">
+										@else
+											<input type="checkbox" name="best_seller" value="1">
+										@endif
+											<strong>Best Seller</strong>
+									</label>
+								</div>								
+							</div>
+						</div>
+					</div>
+
+					<br>
 				
 				
 				<!-- Image Form Input -->

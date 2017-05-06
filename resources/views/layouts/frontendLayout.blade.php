@@ -6,6 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="ProteusNet">
+	
+	<meta property="og:url"           content="http://www.dardoepyi.com/" />
+	<meta property="og:type"          content="website" />
+	<meta property="og:title"         content="Dardoepyi" />
+	<meta property="og:description"   content="Souveniur of Myanmar" />
+
 	<link rel="icon" type="image/ico" href="images/favicon.png">
 
 	<title>Dar DoePyi</title>
@@ -19,7 +25,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
-
+    @yield('header_style')
     <!-- Google fonts -->
     <script type="text/javascript">
     	WebFontConfig = {
@@ -35,6 +41,12 @@
     		s.parentNode.insertBefore(wf, s);
     	})();
     </script>
+
+    <style>
+    	.navbar-collapse ul{
+    		margin-left: 60px;
+    	}
+    </style>
 
 </head>
 <body>
@@ -103,7 +115,7 @@
 				<div class="col-xs-10  col-md-3">
 
 					<div class="header-logo">
-						<a href="index.html"><img alt="Logo" src="{{asset('dist/img/logo.jpg')	}}" width="90" height="90"></a>
+						<a href="index.html"><img alt="Logo" src="{{asset('dist/img/image.png')	}}" style="width:70px;height:70px;margin-top:10px;"></a>
 					</div>
 				</div>
 				<div class="col-xs-2  visible-sm  visible-xs">
@@ -120,32 +132,32 @@
 				<div class="col-xs-12  col-md-7">
 					<nav class="navbar  navbar-default" role="navigation">
 						<!-- Collect the nav links, forms, and other content for toggling -->
-						<center>
-							<div class="collapse  navbar-collapse" id="collapsible-navbar">
+						
+						<div class="collapse  navbar-collapse" id="collapsible-navbar">
 
-								
-								<ul class="nav  navbar-nav">
-									<li class="dropdown">
-										<a href="{{ url('/') }}" class="dropdown-toggle">HOME<b class="caret"></b></a>
-									</li>
-									<li class="dropdown">
-										<a href="{{ url('/shop') }}" class="dropdown-toggle">SHOP<b class="caret"></b></a>									
-									</li>
-									<li class="dropdown">
-										<a href="blog.html" class="dropdown-toggle">DELIVERY<b class="caret"></b></a>
-									</li>
-									<li class="dropdown">
-										<a href="{{ url('/about') }}" class="dropdown-toggle">ABOUT US<b class="caret"></b></a>									
-									</li>
-									<li class="dropdown">
-										<a href="{{ url('/contact') }}" class="dropdown-toggle">CONTACT US<b class="caret"></b></a>									
-									</li>								
-								</ul>
-								
-								<!-- search for mobile devices -->
-								
-							</div><!-- /.navbar-collapse -->
-						</center>
+							
+							<ul class="nav  navbar-nav">
+								<li class="dropdown">
+									<a href="{{ url('/') }}" class="dropdown-toggle">HOME<b class="caret"></b></a>
+								</li>
+								<li class="dropdown">
+									<a href="{{ url('/shop') }}" class="dropdown-toggle">SHOP<b class="caret"></b></a>									
+								</li>
+								<li class="dropdown">
+									<a href="{{ url('/delivery') }}" class="dropdown-toggle">DELIVERY<b class="caret"></b></a>
+								</li>
+								<li class="dropdown">
+									<a href="{{ url('/about') }}" class="dropdown-toggle">ABOUT<b class="caret"></b></a>
+								</li>
+								<li class="dropdown">
+									<a href="{{ url('/contact') }}" class="dropdown-toggle">CONTACT<b class="caret"></b></a>
+								</li>								
+							</ul>
+							
+							<!-- search for mobile devices -->
+
+						</div><!-- /.navbar-collapse -->
+						
 					</nav>
 				</div>				
 			</div>
@@ -197,16 +209,16 @@
 
 							<div class="col-sm-6">
 								<ul class="nav nav-footer">
-									<li><a href="index.html">Home</a></li>
-									<li><a href="shop.html">Shop</a></li>
-									<li><a href="blog.html">Delivery</a></li>									
+									<li><a href="{{ url('/') }}">Home</a></li>
+									<li><a href="{{ url('/shop') }}">Shop</a></li>
+									<li><a href="{{ url('/delivery') }}">Delivery</a></li>									
 								</ul>
 							</div>
 
 							<div class="col-sm-4">
 								<ul class="nav nav-footer">
-									<li><a href="index.html">About</a></li>
-									<li><a href="shop.html">Contact us</a></li>									
+									<li><a href="{{ url('/about') }}">About</a></li>
+									<li><a href="{{ url('/contact') }}">Contact</a></li>									
 								</ul>
 							</div>
 							
@@ -221,9 +233,9 @@
 							<a class="footer__link" href="#">Dar Doepyi</a><br>
 							အမွတ္ ၆/၁၊ သံသုမာလမ္းမၾကီး၊<br>
 							၂၄ရပ္ကြက္၊ သု၀ဏ<br>
-							<a class="footer__link--small" href="contact-2.html">View Google map <span class="glyphicon glyphicon-chevron-right glyphicon--footer-small"></span></a><br><br>
-							<a class="footer__link" href="#"><span class="glyphicon glyphicon-earphone glyphicon--footer"></span> +386 31 567 537</a><br>
-							<a class="footer__link" href="#"><span class="glyphicon glyphicon-envelope glyphicon--footer"></span> hello@proteusnet.com</a>
+							<a class="footer__link--small" href="{{ url('/contact') }}">View Google map <span class="glyphicon glyphicon-chevron-right glyphicon--footer-small"></span></a><br><br>
+							<a class="footer__link" href="#"><span class="glyphicon glyphicon-earphone glyphicon--footer"></span> 09 44 800 8000</a><br>
+							<a class="footer__link" href="#"><span class="glyphicon glyphicon-envelope glyphicon--footer"></span> info@dardoepyi.com</a>
 						</div>
 					</div>
 				</div>
@@ -234,12 +246,12 @@
 				<div class="row">
 					<div class="col-xs-12  col-sm-6">
 						<div class="footer__text--link">
-							<a class="footer__link" href="#">Organique</a> HTML Theme © Copyright 2014. Images of products by <a class="footer__link" href="http://www.nutrisslim.com/" target="_blank">Nutrisslim</a>.
+							<a class="footer__link" href="#">© Copyright</a> "Dar Doepyi" 2017. All rights reserved. 
 						</div>
 					</div>
 					<div class="col-xs-12  col-sm-6">
 						<div class="footer__text">
-							Made with <span class="glyphicon  glyphicon-heart"></span> by <a class="footer__link" href="http://www.proteusthemes.com/" target="_blank">ProteusThemes</a>
+							Created by <a class="footer__link" href="www.dardeopyi.com" target="_blank">Dar Doepyi</a>
 						</div>
 					</div>
 				</div>
@@ -273,5 +285,7 @@
 		ga('send', 'pageview');
 
 	</script>
+
+	@yield('footer-script')
 </body>
 </html>

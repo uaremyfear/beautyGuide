@@ -9,7 +9,7 @@
                 <nav>
                     <ol class="breadcrumb">
                         <li><a href="{{ url('/') }}">Home</a></li>
-                        <li class="active">Contact</li>
+                        <li class="active">About</li>
                     </ol>
                 </nav>
             </div>
@@ -20,7 +20,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12">
-            <img alt="#" class="wp-post-image" src="images/dummy/about-image.jpg" width="1140" height="284">
+            <img alt="#" class="wp-post-image" src="{{ asset('images/bg_2.jpg') }}" width="1140" height="275">
             <h1 class="center"><span class="light">A</span> Little Something About Us</h1>
             <hr class="divider">
             <div class="text-shrink">

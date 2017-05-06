@@ -106,15 +106,13 @@
 
 					<div class="form-gruop">
 						<div class="row">
-							<div class="col-md-12">
-												
+							<div class="col-md-12">												
 								<div class="checkbox">
 									<label>
 										<input type="checkbox" name="feature" value="1">
 										<strong>Feature Product</strong>
 									</label>
-								</div>
-								
+								</div>								
 							</div>
 						</div>
 					</div>
@@ -128,8 +126,7 @@
 										<input type="checkbox" name="best_seller" value="1">
 										<strong>Best Seller</strong>
 									</label>
-								</div>
-								
+								</div>								
 							</div>
 						</div>
 					</div>

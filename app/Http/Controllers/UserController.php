@@ -109,7 +109,8 @@ class UserController extends Controller
         $user = User::findOrFail($id);
 
         $user->name =  $request->name;
-        $user->email = $request->email;                     
+        $user->email = $request->email;
+        $user->save();                     
 
         if(count($request->role) > 0 ){
             $user->roles()->sync($request->role);
