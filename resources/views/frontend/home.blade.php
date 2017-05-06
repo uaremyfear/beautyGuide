@@ -128,7 +128,7 @@
 						<div class="products__single">
 							<figure class="products__image">
 								<a href="{{ url('/product/'.$product->id) }}">
-									<img alt="#" class="product__image" style="width:263px;height:263px;" src="{{ $product->picture()->first()->showImage($product->picture()->first(), $destinationFolder) }}">
+									<img alt="#" class="product__image" style="width:100%;height:263px;" src="{{ $product->picture()->first()->showImage($product->picture()->first(), $destinationFolder) }}">
 								</a>
 								<div class="product-overlay">
 									<a class="product-overlay__more" href="{{ url('/product/'.$product->id) }}">
@@ -194,7 +194,7 @@
 				<figure class="products__image">
 					<a href="{{ url('/product/'.$product->id) }}">
 						<img alt="#" class="product__image" 
-						style="width:263px;height:263px;" 
+						style="width:100%;height:263px;" 
 						width="263px" height="334px" src="{{ $product->picture()->first()->showImage($product->picture()->first(), $destinationFolder) }}">
 					</a>
 					<div class="product-overlay">
@@ -237,12 +237,12 @@
 	<div class="row">
 		@foreach( $best_sellers as $product )
 
-		<div class="col-xs-6 col-sm-3  js--isotope-target  js--cat-5" data-price="2.73" data-rating="5">
+		<div class="col-xs-12 col-sm-3  js--isotope-target  js--cat-5" data-price="2.73" data-rating="5">
 			<div class="products__single">
 				<figure class="products__image">
 					<a href="{{ url('/product/'.$product->id) }}">
 						<img alt="#" class="product__image" 
-						style="width:263px;height:263px;" 
+						style="width:100%;height:263px;" 
 						width="263px" height="334px" src="{{ $product->picture()->first()->showImage($product->picture()->first(), $destinationFolder) }}">
 					</a>
 					<div class="product-overlay">
