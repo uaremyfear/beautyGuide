@@ -21,6 +21,8 @@ return [
             'thumbnailPath'         => '/images/products/thumbnails/thumb-',
             'thumbHeight'           => 80,
             'thumbWidth'            => 80,
+            'imageHeight'           =>  0,
+            'imageWidth'            =>  0,
         ],
 
 

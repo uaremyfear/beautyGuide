@@ -8,7 +8,7 @@
 
 <meta property="og:url" content="http://www.dardoepyi.com/product/{{$product->id}}" />
 
-<meta property="og:title" content="Coaches Wisdom Telesummit" />
+<meta property="og:title" content="{{$product->name}}" />
 
 @endsection
 
@@ -70,6 +70,7 @@
 					<!-- Single button -->
 
 					<!-- Social banners -->
+					
 					<div class="row">
 						<div class="col-xs-12  col-sm-6  col-md-4">
 							<div class="banners--small fb-share-button banners--small--social"
@@ -78,15 +79,15 @@
 							>
 						</div>
 					</div>
-					<div class="col-xs-12 col-sm-6  col-md-4">
+
+					{{-- <div class="col-xs-12 col-sm-6  col-md-4">
 						<div class="banners--small  banners--small--social">
 							<a href="#" class="social"><span class="zocial-twitter"></span>
 								Tweet it<br>
 								<span class="banners--small--text">Twitter</span>
 							</a>
 						</div>
-					</div>
-					
+					</div> --}}					
 				</div>
 			</div>
 		</div>
