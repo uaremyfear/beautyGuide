@@ -7,6 +7,15 @@
 
 @section('content')
 
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <section class="content-header">
 	<h1>
 		Product
@@ -33,6 +42,7 @@
 								<th>Price</th>								
 								<th>Sub Category</th>
 								<th>Category</th>
+								<th>Share</th>
 								<th>Edit</th>
 								<th>Delete</th>							
 							</tr>
@@ -45,6 +55,13 @@
 								<td>{{$product->price}}</td>
 								<td>{{$product->subcategory()->first()->sub_name}}</td>
 								<td>{{$product->category()->first()->category_name}}</td>
+								
+								<td><div class="banners--small fb-share-button banners--small--social"
+									data-href="http://www.dardoepyi.com/product/{{$product->id}}" 
+									data-layout="button_count"
+									></div>
+								</td>
+
 								<td><a href="/gotg/product/{{$product->id}}/edit">Edit</a></td>
 								<td>
 									<form class="form" role="form" method="POST" action="{{ url('gotg/product/'. $product->id) }}">
