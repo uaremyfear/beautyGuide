@@ -1,15 +1,27 @@
 @extends('layouts.frontendLayout')
 
+@section('header_meta')
+
+<meta property="og:image" content=""{{ $product->picture()->first()->showImage($product->picture()->first(), $destinationFolder) }}" />
+
+<meta property="og:description" content="{{$product->description}}" />
+
+<meta property="og:url" content="http://www.dardoepyi.com/product/{{$product->id}}" />
+
+<meta property="og:title" content="Coaches Wisdom Telesummit" />
+
+@endsection
+
 @section('content')
 
 <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
+<script>(function(d, s, id) {
+	var js, fjs = d.getElementsByTagName(s)[0];
+	if (d.getElementById(id)) return;
+	js = d.createElement(s); js.id = id;
+	js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+	fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <div class="breadcrumbs">
 	<div class="container">
@@ -61,14 +73,10 @@
 					<div class="row">
 						<div class="col-xs-12  col-sm-6  col-md-4">
 							<div class="banners--small fb-share-button banners--small--social"
-								data-href="http://www.dardoepyi.com/product/6" 
-								data-layout="button_count"
+							data-href="http://www.dardoepyi.com/product/{{$product->id}}" 
+							data-layout="button_count"
 							>
-							<a href="#" class="social"><span class="zocial-facebook"></span>
-								Share on<br>
-								<span class="banners--small--text">Facebook</span>
-							</a>
-							</div>
+						</div>
 					</div>
 					<div class="col-xs-12 col-sm-6  col-md-4">
 						<div class="banners--small  banners--small--social">

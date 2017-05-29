@@ -5,12 +5,14 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
-	<meta name="author" content="ProteusNet">
+	<meta name="author" content="DarDoepyi">
 	
-	<meta property="og:url"           content="http://www.dardoepyi.com/" />
+	{{-- <meta property="og:url"           content="http://www.dardoepyi.com/" /> --}}
 	<meta property="og:type"          content="website" />
-	<meta property="og:title"         content="Dardoepyi" />
+	{{-- <meta property="og:title"         content="Dardoepyi" /> --}}
 	<meta property="og:description"   content="Souveniur of Myanmar" />
+
+	@yield('header_meta')
 
 	<link rel="icon" type="image/ico" href="images/favicon.png">
 
