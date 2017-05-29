@@ -24,7 +24,7 @@
 				<div class="banners-box">
 					<span class="glyphicon glyphicon-earphone glyphicon--banners"></span>
 					<b class="banners__title">CALL US ANYTIME</b>
-					+09 795583764
+					09 44 800 8000
 				</div>
 			</div>
 			<div class="col-xs-12  col-sm-6  col-md-3">
