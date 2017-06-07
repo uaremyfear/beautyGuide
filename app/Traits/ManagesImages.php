@@ -98,6 +98,8 @@ trait ManagesImages
 
     private function setImageDefaultsFromConfig($imageTypeKey)
     {
+        //dd($imageTypeKey);
+
         $imageType = 'image-defaults.' . $imageTypeKey;
 
         $this->imageDefaults = Config::get($imageType);

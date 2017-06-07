@@ -3,63 +3,126 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Http\Requests;
 use App\Category;
+use App\Menu;
 
 class CategoryController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $categories = Category::all();
-    	return view('backend.category.index',compact('categories'));
+        return view('backend.category.index',compact('categories'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-    	return view('backend.category.create');
+        $menus = Menu::pluck('menu_name','id');
+        return view('backend.category.create',compact('menus'));
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
-    	$this->validate($request,[
-    		'category_name' => 'required|string|max:50|unique:categories,category_name'
-    		]);
-		
-		$slug = str_slug($request->category_name, "-");
+        $this->validate($request,Category::$rules);
 
-		Category::create([
-				'category_name' => $request->category_name,
-				'slug' => $slug
-			]);
+        $request->request->add(['category_link' => $this->formatLink(strtolower($request->category_name))]);
 
-        alert()->success('Category', 'Category Created!');
+        Category::create($request->all());
 
-        return redirect('gotg/category');
+        alert('Success','Category Created');
+
+        return redirect()->back();
     }
 
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function edit($id)
     {
-    	$category = Category::findOrFail($id);
-
-    	return view('backend.category.edit',compact('category'));
+        $category = Category::findOrFail($id);
+        $menus = Menu::pluck('menu_name','id');
+        return view('backend.category.edit',compact('menus','category'));
     }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function update(Request $request, $id)
     {
-    	$this->validate($request, [
-            'category_name' => 'required|string|max:50|unique:categories,category_name,' .$id
-            ]);
+        $category = Category::findOrFail($id);
 
-    	$slug = str_slug($request->name, "-");
+        $this->validate($request,Category::$editRules);
 
-    	$category = Category::findOrFail($id); 
+        $request->request->add(['category_link' => $this->formatLink(strtolower($request->category_name))]);
 
-    	$category->update([
-				'category_name' => $request->category_name,
-				'slug' => $slug
-			]);
+        $category->update($request->all());
 
-        alert()->success('Category', 'Category Updated!');
+        alert('Success','Category Updated');
 
-        return redirect('gotg/category');
+        return redirect()->back();
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        $category = Category::findOrFail($id);
+
+        if(count($category->posts()->get()))
+        {
+            alert('Error','This cateogyr has posts, cant delete');
+        }
+        else
+        {
+            Category::destroy($id);
+        }
+
+        return redirect()->back();
+    }
+
+    private function formatLink($string) 
+    {   
+        $string =  rtrim($string);
+        $string = str_replace(' ', '-',$string); // Replaces all spaces with hyphens.
+        return $string; // Removes special chars.
     }
 }

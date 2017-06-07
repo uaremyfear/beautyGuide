@@ -14,16 +14,22 @@ return [
     */
 
         'marketingImage' => [
-            'destinationFolder'     => '/images/products/',
-            'destinationThumbnail'      => '/images/products/thumbnails/',
+            'destinationFolder'     => '/images/posts/',
+            'destinationThumbnail'      => '/images/posts/thumbnails/',
             'thumbPrefix'           => 'thumb-',
-            'imagePath'             => '/images/products/',
-            'thumbnailPath'         => '/images/products/thumbnails/thumb-',
-            'thumbHeight'           => 80,
-            'thumbWidth'            => 80,
-            'imageHeight'           =>  0,
-            'imageWidth'            =>  0,
+            'imagePath'             => '/images/posts/',
+            'thumbnailPath'         => '/images/posts/thumbnails/thumb-',
+            'thumbHeight'           => 60,
+            'thumbWidth'            => 200,
         ],
 
-
+        'subcontentImage' => [
+            'destinationFolder'     => '/images/subcontents/',
+            'destinationThumbnail'      => '/images/subcontents/thumbnails/',
+            'thumbPrefix'           => 'thumb-',
+            'imagePath'             => '/images/subcontents/',
+            'thumbnailPath'         => '/images/subcontents/thumbnails/thumb-',
+            'thumbHeight'           => 100,
+            'thumbWidth'            => 400,            
+        ],
 ];

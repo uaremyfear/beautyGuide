@@ -13,7 +13,7 @@ class MarketingImage extends Model
 	protected $table = "images";
 
 	protected $fillable = [
-	'product_id',
+	'post_id',
 	'image_name',
 	'image_extension'];
 }

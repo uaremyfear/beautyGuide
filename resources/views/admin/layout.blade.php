@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dar Doepyi | Souvenir of Myanmar| Dashboard</title>
+    <title>BeautyGuide | For U r My Haha</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
@@ -12,6 +12,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    
+    @yield('header_link')
+
+
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('dist/css/AdminLTE.min.css')}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -30,13 +36,16 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="{{ asset('plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }} ">
     <link rel="stylesheet" type="text/css" href="/css/sweetalert.css">
-    @yield('header_link')
+
+    
 
     <style>
         .capital td,strong,p {
             text-transform: capitalize; 
         }
     </style>
+
+     ReferenceError: $ is not defined
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -48,7 +57,7 @@
     <div class="wrapper">
         <header class="main-header">
             <!-- Logo -->
-            <a href="{{ url('gotg') }}" class="logo">
+            <a href="{{ url('starwars') }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>A</b>LT</span>
                 <!-- logo for regular state and mobile devices -->
@@ -71,7 +80,7 @@
                         
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
-                            <a href="{{ url('gotg/changemypassword') }}">
+                            <a href="{{ url('starwars/changemypassword') }}">
                                 My Profile
                             </a>
                         </li>
@@ -100,67 +109,42 @@
                         <img src="{{ asset('dist/img/logo.jpg') }} " style="max-width:60px" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info" style="padding-left:24px">
-                        <p>Dar Doepyi Admin</p>
+                        <p>Beauty Guide Admin</p>
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
                 </div>
+                
                 <ul class="sidebar-menu">
                     <li class="treeview">
-                        <a href=" {{ url('gotg/category') }}">
+                        <a href=" {{ url('starwars/menu') }}">
+                            <i class="fa fa-files-o"></i>
+                            <span>Menu</span>
+                        </a>
+                    </li>
+                </ul>    
+
+                <ul class="sidebar-menu">
+                    <li class="treeview">
+                        <a href=" {{ url('starwars/category') }}">
                             <i class="fa fa-files-o"></i>
                             <span>Category</span>
                         </a>
                     </li>
                 </ul>
 
+                
                 <ul class="sidebar-menu">
                     <li class="treeview">
-                        <a href=" {{ url('gotg/subcategory') }}">
+                        <a href=" {{ url('starwars/post') }}">
                             <i class="fa fa-files-o"></i>
-                            <span>Sub Category</span>
+                            <span>Post</span>
                         </a>
                     </li>
                 </ul>
 
                 <ul class="sidebar-menu">
                     <li class="treeview">
-                        <a href=" {{ url('gotg/product') }}">
-                            <i class="fa fa-files-o"></i>
-                            <span>Product</span>
-                        </a>
-                    </li>
-                </ul>
-
-                <ul class="sidebar-menu">
-                    <li class="treeview">
-                        <a href=" {{ url('gotg/delivery') }}">
-                            <i class="fa fa-files-o"></i>
-                            <span>Delivery</span>
-                        </a>
-                    </li>
-                </ul>
-
-                <ul class="sidebar-menu">
-                    <li class="treeview">
-                        <a href=" {{ url('gotg/feature') }}">
-                            <i class="fa fa-files-o"></i>
-                            <span>Feature</span>
-                        </a>
-                    </li>
-                </ul>
-
-                <ul class="sidebar-menu">
-                    <li class="treeview">
-                        <a href=" {{ url('gotg/bestseller') }}">
-                            <i class="fa fa-files-o"></i>
-                            <span>Best Seller</span>
-                        </a>
-                    </li>
-                </ul>
-
-                <ul class="sidebar-menu">
-                    <li class="treeview">
-                        <a href=" {{ url('gotg/user') }}">
+                        <a href=" {{ url('starwars/user') }}">
                             <i class="fa fa-files-o"></i>
                             <span>User</span>                            
                         </a>
@@ -178,9 +162,7 @@
     <!-- jQuery 2.2.3 -->
     <script src="{{ asset('js/app.js')}}"></script>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button);

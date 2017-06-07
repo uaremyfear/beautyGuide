@@ -12,7 +12,7 @@
 <section class="content">
 	<div class="row">
 		<div class="col-md-12">
-			<form class="form" role="form" method="POST" action="{{ url('/gotg/category/'. $category->id) }}">
+			<form class="form" role="form" method="POST" action="{{ url('/starwars/category/'. $category->id) }}">
 				<input type="hidden" name="_method" value="patch">
 				{{ csrf_field() }}
 
@@ -29,6 +29,24 @@
 					@endif
 
 				</div>
+
+				<div class="form-gruop {{ $errors->has('menu_id') ? ' has-error' : '' }}">
+					<label for="menu" class="control-label">Menu</label>
+					{!! Form::select('id', $menus,
+						$category->menu()->first()->id,
+						['name'=>'menu_id' , 'class'=>'form-control', 'placeholder'=>'-- Choose Menu Name --']) 
+					!!}	
+
+					@if ($errors->has('menu_id'))
+
+					<span class="help-block">
+						<strong>{{ $errors->first('menu_id') }}</strong>
+					</span>
+
+					@endif
+				</div>
+
+				<br>
 
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary btn-lg">

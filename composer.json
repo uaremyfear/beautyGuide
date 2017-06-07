@@ -10,8 +10,8 @@
         "intervention/image": "^2.3",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
-        "socieboy/alerts": "dev-master",
-        "ext-gd": "*"
+        "laravelcollective/html": "^5.4.0",
+        "socieboy/alerts": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
