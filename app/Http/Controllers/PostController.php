@@ -151,7 +151,7 @@ class PostController extends Controller
 
         $post->update($request->all());
 
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('image')) {           
             $this::updateImage($request,$post);
         }
 
@@ -256,6 +256,7 @@ class PostController extends Controller
                 $this->deleteExistingImages($marketingImage);
                 $this->setNewFileExtension($request, $marketingImage);
             }
+
             $marketingImage->save();
             // check for file, if new file, overwrite existing file
             if ($this->newFileIsUploaded()){
