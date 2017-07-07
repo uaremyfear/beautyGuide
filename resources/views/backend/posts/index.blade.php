@@ -48,7 +48,7 @@
 						<tbody>
 							@foreach ($posts as $post)
 							<tr>
-								<td>{{$post->prefix}}</td>
+								<td>{{$post->getPrefix()}}</td>
 								<td>
 									<a href="/starwars/post/{{$post->prefix}}">
 									{{$post->title}}
@@ -63,12 +63,12 @@
 									{{ count($post->subContents()->get() )}}
 
 									<a href="/starwars/article/{{$post->id}}/subcontent/create" class="pull-right">
-										<span class="glyphicon glyphicon-plus-sign"></span>
+										<span class="glyphicon glyphicon-edit"></span>
 									</a>
 								</td>
 								<td><a href="/starwars/post/{{$post->id}}/edit">Edit</a></td>
 
-								<td>
+								<td class="text-center">
 									<form class="form" role="form" method="POST" action="{{ url('/starwars/post/'. $post->id) }}">
 										<input type="hidden" name="_method" value="delete">
 										{{ csrf_field() }}

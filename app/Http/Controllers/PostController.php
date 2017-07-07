@@ -31,6 +31,8 @@ class PostController extends Controller
     {
         $posts = Post::orderBy('view_count','DESC')->with('author')->get();
 
+
+
         return view('backend.posts.index')->with(compact('posts'));
     }
 

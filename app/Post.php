@@ -9,7 +9,7 @@ class Post extends Model
     public static $rulesWithImage = [
     'title' => 'required',
     'body' => 'required',
-    'prefix'=> 'required',
+    'prefix'=> 'required|max:4|min:3',
     'author_id' => 'required',
     'image' => 'required|mimes:jpeg,jpg,bmp,png|max:2097152',
     'tag_id' => 'required'
@@ -18,7 +18,7 @@ class Post extends Model
     public static $rules = [
     'title' => 'required',
     'body' => 'required',
-    'prefix'=> 'required',
+    'prefix'=> 'required|max:4',
     'author_id' => 'required',
     'tag_id' => 'required'
     ];
@@ -74,5 +74,10 @@ class Post extends Model
     public function setPrefixAttribute($value)
     {
         $this->attributes['prefix'] = mt_rand(1000,10000).'-'.$value;
+    }
+
+    public function getPrefix()
+    {  
+        return explode('-', $this->prefix)[1];
     }
 }

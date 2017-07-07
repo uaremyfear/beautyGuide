@@ -35,7 +35,7 @@
 
 					<label class="control-label">Prefix</label>
 
-					<input type="text" class="form-control" name="prefix" value="{{ $post->prefix }}">
+					<input type="text" class="form-control" name="prefix" value="{{ $post->getPrefix() }}">
 
 					@if ($errors->has('prefix'))
 
