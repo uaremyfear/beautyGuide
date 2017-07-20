@@ -165,6 +165,7 @@ return [
 
         Intervention\Image\ImageServiceProvider::class,
         Socieboy\Alerts\AlertServiceProvider::class,
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         /*
          * Package Service Providers...
          */

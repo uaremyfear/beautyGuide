@@ -1,80 +1,57 @@
-@extends('admin.layout')
-
-@section('header_link')
-<!-- DataTables -->
-<link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap.css')}}">
-@endsection
-
+@extends('layouts.admin')
 @section('content')
 
-<section class="content-header">
-	<h1>
-		Menu
-		<small>List</small>
-	</h1>
-	<ol class="breadcrumb">
-		<li class="active block"><a href="{{ url('starwars/menu/create') }}">
-			<button class="btn btn-block btn-success">create</button>
-		</a></li>
-	</ol>
-</section>
+<div class="box-header">
+	<h3 class="box-title">Post Create</h3>
+</div>
+<!-- /.box-header -->
+<div class="box-body">
+	<table id="example1" class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>Menu Name</th>
+				<th>Menu link</th>
+				<th>Action</th>								
+				<th></th>								
+			</tr>
+		</thead>
+		<tbody>
+			@foreach ($menus as $menu)
+			<tr>
+				<td>{{$menu->menu_name}}</td>
+				<td>{{$menu->menu_link}}</td>
+				<td><a href="/starwars/menu/{{ $menu->id }}/edit">Edit</a></td>
+				<td>
+					<form class="form" role="form" method="POST" action="{{ url('starwars/menu/'. $menu->id) }}">
+						<input type="hidden" name="_method" value="delete">
+						{{ csrf_field() }}
 
-<section class="content">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="box">
-				<!-- /.box-header -->
-				<div class="box-body capital">
-					<table id="example1" class="table table-bordered table-striped">
-						<thead>
-							<tr>
-								<th>Menu Name</th>
-								<th>Menu link</th>
-								<th>Action</th>								
-								<th></th>								
-							</tr>
-						</thead>
-						<tbody>
-							@foreach ($menus as $menu)
-							<tr>
-								<td>{{$menu->menu_name}}</td>
-								<td>{{$menu->menu_link}}</td>
-								<td><a href="/starwars/menu/{{ $menu->id }}/edit">Edit</a></td>
-								<td>
-									<form class="form" role="form" method="POST" action="{{ url('starwars/menu/'. $menu->id) }}">
-										<input type="hidden" name="_method" value="delete">
-										{{ csrf_field() }}
-
-										<input class="btn btn-danger" Onclick="return ConfirmDelete();" type="submit" value="Delete">
-									</form>
-								</td>
-							</tr> 
-							@endforeach
-						</tbody>
-						<tfoot>
-							<tr>
-								<th>menu Name</th>
-								<th>Menu link</th>
-								<th>Action</th>								
-								<th></th>
-							</tr>
-						</tfoot>
-					</table>
-				</div>
-				<!-- /.box-body -->
-			</div>
-			<!-- /.box -->
-		</div>
-	</div>
+						<input class="btn btn-danger" Onclick="return ConfirmDelete();" type="submit" value="Delete">
+					</form>
+				</td>
+			</tr> 
+			@endforeach
+		</tbody>
+		<tfoot>
+			<tr>
+				<th>menu Name</th>
+				<th>Menu link</th>
+				<th>Action</th>								
+				<th></th>
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<!-- /.box-body -->
+</div>
+<!-- /.box -->
+</div>
+</div>
 </section>
 
 @endsection
 
-@section('footer_js')
-
-<script src="{{ asset('plugins/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{ asset('plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
-<script src="{{ asset('plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
+@section('footer-scripts')
 
 <script>
 	$(function () {

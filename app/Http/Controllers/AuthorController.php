@@ -18,7 +18,7 @@ class AuthorController extends Controller
     {
         $authors = Author::all();
 
-        return view('admin.authors.index',compact('authors'));
+        return view('backend.authors.index',compact('authors'));
     }
 
     /**
@@ -28,7 +28,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        return view('admin.authors.create');
+        return view('backend.authors.create');
     }
 
     /**
@@ -41,6 +41,7 @@ class AuthorController extends Controller
     {
         $this->validate($request, Author::$rules);
         Author::create($request->all());
+        alert()->success('Success','Author created');
         return redirect()->route('author.index');
     }
     /**
@@ -51,7 +52,7 @@ class AuthorController extends Controller
      */
     public function show($id)
     {
-
+        dd();
     }
 
     /**
@@ -62,9 +63,8 @@ class AuthorController extends Controller
      */
     public function edit($id)
     {
-        $author = Author::findOrFail($id);
-        
-        return view('admin.authors.edit',compact('author'));
+        $author = Author::findOrFail($id);        
+        return view('backend.authors.edit',compact('author'));
     }
 
     /**
@@ -78,6 +78,12 @@ class AuthorController extends Controller
     {
         $this->validate($request, Author::$rules);
         
+        $author = Author::findOrFail($id);
+
+        $author->update($request->all());
+
+        alert()->success('Success','Author updated');
+
         return redirect()->route('author.index');
     }
 
@@ -89,6 +95,15 @@ class AuthorController extends Controller
      */
     public function destroy($id)
     {
-       
+        $author = Author::findOrFail($id);
+
+        if (count($author->posts()->get())) {
+            alert()->error('Error','Author Has Related Posts');
+            return redirect()->back();
+        }
+
+        Author::destroy($id);
+
+        return redirect()->back();
     }
 }

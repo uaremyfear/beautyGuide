@@ -30,9 +30,6 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::orderBy('view_count','DESC')->with('author')->get();
-
-
-
         return view('backend.posts.index')->with(compact('posts'));
     }
 
@@ -47,8 +44,25 @@ class PostController extends Controller
         $tags = Tag::pluck('name','name');
         $categories = Category::pluck('category_name','id');
         $menus = Menu::whereNotIn('id',Category::pluck('menu_id'))->pluck('menu_name','id');
-
         return view('backend.posts.create' , compact('authors','tags','categories','menus'));  
+    }
+
+    public function createFirstStep(Request $request)
+    {
+        $this->validate($request,Post::$firstrules);
+        
+        if ( !$request->has('category_id') && !$request->has('menu_id') ) {
+            return back()->withErrors(['cat_menu' => ['Choose cateogry or menu']])->withInput();
+        }
+        
+        session()->put('inputs', $request->except('token'));
+        
+        return redirect()->route('post.finalstep');
+    }
+
+    public function createFinalStep()
+    {
+        return view('backend.posts.finalCreate');
     }
 
     /**
@@ -59,16 +73,27 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {   
-        if ( !$request->has('category_id') && !$request->has('menu_id') ) {
-            return back()->withErrors(['cat_menu' => ['Choose cateogry or menu']])->withInput();
+        if (!session()->has('inputs')) {
+            return redirect()->back();
         }
+        
+        $inputs = session()->get('inputs');
 
+        foreach ($inputs as $key => $value) {
+            $request->request->add([$key=>$value]);
+        }        
+        
         if ($request->hasFile('image')) {
             $this->validate($request,Post::$rulesWithImage);
         }
         else {
             $this->validate($request,Post::$rules);;
         }
+
+        // $this->validate($request,[
+        //     'image' => 'required|mimes:jpeg,jpg,bmp,png|max:2097152',
+        //     'content' => 'required',
+        // ]);       
 
         $tag_id = $this->tag_check($request->input('tag_id'));
         
@@ -127,6 +152,26 @@ class PostController extends Controller
         return view('backend.posts.edit',compact('post','authors','tags','categories','thumbnailPath','menus','postMenu','postCate','postTags'));
     }
 
+    public function editFirstStep(Request $request, $id)
+    {
+        if ( !$request->has('category_id') && !$request->has('menu_id') ) {
+            return back()->withErrors(['cat_menu' => ['Choose cateogry or menu']])->withInput();
+        }
+
+        $this->validate($request,Post::$firstrules);
+
+        session()->put('inputs', $request->except('token'));
+        
+        return redirect()->route('post.editfinalstep', ['id' => $id]);
+    }
+
+    public function editFinalStep($id)
+    {
+        $post = Post::findOrFail($id);
+        $thumbnailPath = $this->thumbnailPath;
+        return view('backend.posts.editFinal',compact('post','thumbnailPath'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -136,6 +181,16 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!session()->has('inputs')) {
+            return redirect()->back();
+        }
+        
+        $inputs = session()->get('inputs');
+
+        foreach ($inputs as $key => $value) {
+            $request->request->add([$key=>$value]);
+        }   
+
         if ( !$request->has('category_id') && !$request->has('menu_id') ) {
             return back()->withErrors(['cat_menu' => ['Choose cateogry or menu']])->withInput();
         }
@@ -172,7 +227,7 @@ class PostController extends Controller
 
         alert()->success('Post', 'Post Edited!');
 
-        return redirect()->back();
+        return redirect()->route('post.show',['prefix'=>$post->prefix]);
     }
 
     /**
@@ -184,11 +239,6 @@ class PostController extends Controller
     public function destroy($id)
     {
         $post = Post::findOrFail($id);
-
-        if (count($post->subContents()->get())) {
-            alert('Error','Cant Delete,the Post has subcontents');
-            return redirect()->back();
-        }
 
         Post::destroy($id);
 

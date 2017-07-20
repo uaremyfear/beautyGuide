@@ -7,24 +7,31 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     public static $rulesWithImage = [
-    'title' => 'required',
-    'body' => 'required',
-    'prefix'=> 'required|max:4|min:3',
-    'author_id' => 'required',
-    'image' => 'required|mimes:jpeg,jpg,bmp,png|max:2097152',
-    'tag_id' => 'required'
+        'title' => 'required',
+        'content' => 'required',
+        'prefix'=> 'required|max:4|min:3',
+        'author_id' => 'required',
+        'image' => 'required|mimes:jpeg,jpg,bmp,png|max:2097152',
+        'tag_id' => 'required'
     ];
 
     public static $rules = [
-    'title' => 'required',
-    'body' => 'required',
-    'prefix'=> 'required|max:4',
-    'author_id' => 'required',
-    'tag_id' => 'required'
+        'title' => 'required',
+        'content' => 'required',
+        'prefix'=> 'required|max:4',
+        'author_id' => 'required',
+        'tag_id' => 'required'
+    ];
+
+    public static $firstrules = [
+        'title' => 'required',
+        'prefix'=> 'required|max:4',
+        'author_id' => 'required',
+        'tag_id' => 'required'
     ];
 
     protected $fillable = [  
-    'title','prefix', 'body' , 'author_id' ];
+    'title','prefix', 'content' , 'author_id' ];
 
     public function author()
     {

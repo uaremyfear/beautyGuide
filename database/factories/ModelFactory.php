@@ -27,7 +27,7 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
         'title' => $faker->company,
         'prefix' => $faker->company,
         'view_count' => random_int(1, 50),
-        'body' => $faker->paragraph,
+        'content' => $faker->paragraph,
         'author_id' => random_int(1, 5),
         'active' => true
     ];
@@ -41,7 +41,7 @@ $factory->define(App\Author::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Category::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'category_name' => $faker->name,
     ];
 });
 

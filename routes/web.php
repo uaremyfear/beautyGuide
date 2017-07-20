@@ -21,27 +21,41 @@ Route::get('/home', function(){
 	return redirect()->to('/starwars/post');
 });
 
-
 // \Event::listen('Illuminate\Database\Events\QueryExecuted', function ($query) {
 //     var_dump($query->sql);
 //     var_dump($query->bindings);
 //     var_dump($query->time);
 // });
 
-	
 
-Route::group(['prefix' => 'starwars' , 'middleware' => 'auth'], function () {	
-	Route::resource('/category','CategoryController');	
-	Route::resource('/user','UserController');
-	Route::resource('/menu','MenuController');
+
+// Route::group(['prefix' => 'starwars' , 'middleware' => ['auth','web']], function () {	
+Route::prefix('starwars')->middleware(['auth','web'])->group( function () {	
+	
 	Route::get('/changepassword/user/{id}','UserController@changePassword');
 	Route::post('/changepassword/user/{id}','UserController@updatePassword');
 	Route::get('/changemypassword','PasswordController@showChangePasswordForm');
 	Route::post('/changemypassword','PasswordController@updateChangePassword');
+	
+	Route::post('/post/createFirstStep','PostController@createFirstStep');
+	Route::get('/post/finalStep','PostController@createFinalStep')->name('post.finalstep');
+	
+	Route::patch('/post/editFirstStep/{id}','PostController@editFirstStep');
+	Route::get('/post/editfinalStep/{id}','PostController@editFinalStep')->name('post.editfinalstep');
+
 	Route::resource('/post','PostController');
 	Route::resource('/author','AuthorController');
 
 	Route::resource('/article/{post_id}/subcontent','SubContentController');
+
+	// Route::get('/test',function ()
+	// {
+	// 	return view('vendor.laravel-filemanager.demo');
+	// });
+	Route::resource('/category','CategoryController');	
+	Route::resource('/user','UserController');
+	Route::resource('/menu','MenuController');
+	Route::resource('/tag','TagController');
 });
 
 Route::get('/{category}/{id}',function ($category,$id)

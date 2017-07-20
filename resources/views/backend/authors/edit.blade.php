@@ -1,7 +1,11 @@
 @extends('layouts.admin')
-
 @section('content')
-	<h2>Author Create</h2>
+
+<div class="box-header">
+	<h3 class="box-title">Author Edit</h3>
+</div>
+<!-- /.box-header -->
+<div class="box-body">
 	{!! Form::open(['route' => ['author.update',$author->id] , 'method' => 'patch']) !!}
 
 	<div class="form-group">
@@ -11,7 +15,7 @@
 			<label class="text-danger" for="name"><small>{{ $errors->first('name') }}</small></label>
 		@endif
 
-		{!! Form::text('name',null,['class'=>'form-control' , 'value' => $author->id ]) !!}
+		{!! Form::text('name',$author->name,['class'=>'form-control' , 'value' => $author->id ]) !!}
 	</div>
 
 	<div class="form-group">

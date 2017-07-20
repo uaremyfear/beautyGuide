@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('prefix');
-            $table->text('body');
+            $table->text('content');
             $table->string('author_id');
             $table->integer('view_count')->default(0);
             $table->boolean('active')->default(1);
