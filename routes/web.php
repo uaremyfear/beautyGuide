@@ -58,10 +58,11 @@ Route::prefix('starwars')->middleware(['auth','web'])->group( function () {
 	Route::resource('/tag','TagController');
 });
 
-Route::get('/{category}/{id}',function ($category,$id)
-{
-	dd($category . $id);
-});	
+
+
+Route::get('/{category}/{id}','FrontendController@show');
+
+// Route::get('/{category}')	
 
 Auth::routes();
 

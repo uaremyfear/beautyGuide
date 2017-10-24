@@ -19,8 +19,8 @@ return [
             'thumbPrefix'           => 'thumb-',
             'imagePath'             => '/images/posts/',
             'thumbnailPath'         => '/images/posts/thumbnails/thumb-',
-            'thumbHeight'           => 60,
-            'thumbWidth'            => 200,
+            'thumbHeight'           => 320,
+            'thumbWidth'            => 480,
         ],
 
         'subcontentImage' => [
@@ -29,7 +29,7 @@ return [
             'thumbPrefix'           => 'thumb-',
             'imagePath'             => '/images/subcontents/',
             'thumbnailPath'         => '/images/subcontents/thumbnails/thumb-',
-            'thumbHeight'           => 100,
-            'thumbWidth'            => 400,            
+            'thumbHeight'           => 320,
+            'thumbWidth'            => 480,            
         ],
 ];

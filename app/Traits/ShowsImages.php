@@ -6,6 +6,7 @@ trait ShowsImages
 	{
 		return '?'. 'time='. time();
 	}
+
 	public function showImage($imageModel, $path)
 	{
 		return $path . $imageModel->image_name
@@ -13,6 +14,8 @@ trait ShowsImages
 		. $imageModel->image_extension
 		. $this->noCache();
 	}
+
+	
 
 	/**
 	* @param $featuredImage

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Menu;
 use App\Post;
+use App\Tag;
 use App\MarketingImage;
 use App\Traits\ManagesImages;
 
@@ -20,13 +21,25 @@ class FrontendController extends Controller
     public function index()
     {
     	$menus = Menu::all();
-    	$destinationFolder = $this->destinationFolder;
-    	$posts = Post::orderBy('id','DESC')->limit('3')->get();
 
-    	$latest1 = Post::orderBy('id','DESC')->first();    	
-    	$latest2 = Post::orderBy('id','DESC')->whereNotIn('id',[$latest1->id])->first();
-    	$latest3 = Post::orderBy('id','DESC')->whereNotIn('id',[$latest1->id,$latest2->id])->first();
+        $tags = Tag::orderBy('name')->get();
 
-    	return view('frontend.index',compact('menus','posts','destinationFolder','latest1','latest2','latest3'));
+        $thumbnailFolder = $this->thumbnailPath;
+    	$posts = Post::orderBy('id','DESC')->limit('6')->get();
+
+    	$post = Post::first();
+
+    	return view('frontend.index', compact('menus','posts','thumbnailFolder','tags','post'));
+    }
+
+    public function show($category,$id)
+    {
+        $menus = Menu::all();
+        $tags = Tag::orderBy('name')->get();
+
+        $post = Post::findOrFail($id);
+        $posts = Post::orderBy('id','DESC')->limit('3')->get();
+
+        return view('frontend.show',compact('menus','posts','thumbnailFolder','tags','post'));
     }
 }
