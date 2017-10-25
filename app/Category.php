@@ -28,4 +28,16 @@ class Category extends Model
     {
     	return $this->belongsToMany(Post::class);
     }
+
+    protected $appends = ['title','link'];
+
+    public function getTitleAttribute()
+    {
+        return $this->category_name;
+    }
+
+     public function getLinkAttribute()
+    {
+        return $this->category_link;
+    }
 }

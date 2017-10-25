@@ -61,6 +61,7 @@ Route::prefix('starwars')->middleware(['auth','web'])->group( function () {
 
 
 Route::get('/{category}/{id}','FrontendController@show');
+Route::get('/{category}','FrontendController@listByKeyword');
 
 // Route::get('/{category}')	
 
