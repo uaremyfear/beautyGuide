@@ -4,14 +4,95 @@
 <main>
     <!--Main layout-->
     <div class="container">
+        {{-- Carosal --}}
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @foreach ($posts as $key => $post)
+                @if( $key > 2 )
+                @if( $key == 3)
+                <div class="carousel-item active">
+                @else
+                <div class="carousel-item">
+                @endif
+
+                    <div class="row fadeIn" data-wow-delay="0.2s">
+                        <div class="col-lg-7">
+                            <!--Featured image -->
+                            <div class="view overlay hm-white-light z-depth-1-half">
+                                <img src="{{ asset('images/posts/' . $post->picture()->first()->image_name.'.'.$post->picture()->first()->image_extension) }}" style="width:100%;max-height:auto;" class="img-fluid " alt="">
+                                {{-- <div class="mask"></div> --}}
+                            </div>
+                            <br>
+                        </div>
+
+                        <!--Main information-->
+                        <div class="col-lg-5">
+                            <h4 class="h4-responsive">{{$post->title}}</h4>
+                            <hr>
+                            <p><i>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore numquam commodi suscipit quibusdam adipisci eaque saepe recusandae dolorum, blanditiis iure repellendus atque totam perferendis corrupti laudantium! Expedita omnis amet cupiditate. "</i></p>
+                            <a href="{{ url('/feature/' . $post->id ) }}" class="btn btn-info">See Full Story!</a>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @endforeach
+                {{-- <div class="carousel-item">
+                    <div class="row fadeIn" data-wow-delay="0.2s">
+                        <div class="col-lg-7">
+                            <!--Featured image -->
+                            <div class="view overlay hm-white-light z-depth-1-half">
+                                <img src="{{ asset('images/posts/' . $post->picture()->first()->image_name.'.'.$post->picture()->first()->image_extension) }}" style="width:100%;max-height:250px;" class="img-fluid " alt="">
+                                <div class="mask"></div>
+                            </div>
+                            <br>
+                        </div>
+
+                        <!--Main information-->
+                        <div class="col-lg-5">
+                            <h4 class="h4-responsive">{{$post->title}}</h4>
+                            <hr>
+                            <a href="{{ url('/feature/' . $post->id ) }}" class="btn btn-info">See Full Story!</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row fadeIn" data-wow-delay="0.2s">
+                        <div class="col-lg-7">
+                            <!--Featured image -->
+                            <div class="view overlay hm-white-light z-depth-1-half">
+                                <img src="{{ asset('images/posts/' . $post->picture()->first()->image_name.'.'.$post->picture()->first()->image_extension) }}" style="width:100%;max-height:250px;" class="img-fluid " alt="">
+                                <div class="mask"></div>
+                            </div>
+                            <br>
+                        </div>
+
+                        <!--Main information-->
+                        <div class="col-lg-5">
+                            <h4 class="h4-responsive">{{$post->title}}</h4>
+                            <hr>
+                            <a href="{{ url('/feature/' . $post->id ) }}" class="btn btn-info">See Full Story!</a>
+                        </div>
+                    </div>
+                </div> --}}
+            </div>
+            {{-- <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a> --}}
+        </div>
+        {{-- Carosal --}}
+
         <!--First row-->
-        <div class="row wow fadeIn" data-wow-delay="0.2s">
+        {{-- <div class="row wow fadeIn" data-wow-delay="0.2s">
             <div class="col-lg-7">
                 <!--Featured image -->
                 <div class="view overlay hm-white-light z-depth-1-half">
                     <img src="{{ asset('images/posts/' . $post->picture()->first()->image_name.'.'.$post->picture()->first()->image_extension) }}" style="width:100%;max-height:250px;" class="img-fluid " alt="">
-                    {{-- <div class="mask">
-                    </div> --}}
+                    <div class="mask"></div>
                 </div>
                 <br>
             </div>
@@ -22,7 +103,7 @@
                 <hr>
                 <a href="{{ url('/feature/' . $post->id ) }}" class="btn btn-info">See Full Story!</a>
             </div>
-        </div>
+        </div> --}}
 
         <hr class="extra-margins my-4">
 
